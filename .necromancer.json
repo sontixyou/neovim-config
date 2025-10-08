@@ -1,0 +1,14 @@
+{
+  "plugins": [
+    {
+      "name": "denops.vim",
+      "repo": "https://github.com/vim-denops/denops.vim",
+      "commit": "a278b8342459e4687f24d4d575d72ff593326cee"
+    },
+    {
+      "name": "denops-helloworld",
+      "repo": "https://github.com/vim-denops/denops-helloworld.vim",
+      "commit": "f975281571191cfd4e3f9e5ba77103932f7dd6e5"
+    }
+  ]
+}
