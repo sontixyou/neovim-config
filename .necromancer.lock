@@ -1,20 +1,27 @@
 {
   "version": "1",
-  "generated": "2025-10-05T22:56:08.278Z",
+  "generated": "2025-10-09T13:42:22.836Z",
   "plugins": [
     {
       "name": "denops-helloworld",
       "repo": "https://github.com/vim-denops/denops-helloworld.vim",
       "commit": "f975281571191cfd4e3f9e5ba77103932f7dd6e5",
-      "installedAt": "2025-10-05T22:56:08.278Z",
+      "installedAt": "2025-10-09T13:42:19.967Z",
       "path": "/Users/kengo/.local/share/nvim/necromancer/plugins/denops-helloworld"
     },
     {
       "name": "denops.vim",
       "repo": "https://github.com/vim-denops/denops.vim",
       "commit": "a278b8342459e4687f24d4d575d72ff593326cee",
-      "installedAt": "2025-10-05T22:56:08.263Z",
+      "installedAt": "2025-10-09T13:42:19.949Z",
       "path": "/Users/kengo/.local/share/nvim/necromancer/plugins/denops.vim"
+    },
+    {
+      "name": "nvim-treesitter",
+      "repo": "https://github.com/nvim-treesitter/nvim-treesitter",
+      "commit": "3ab4f2d2d20be55874e2eb575145c6928d7d7d0e",
+      "installedAt": "2025-10-09T13:42:22.836Z",
+      "path": "/Users/kengo/.local/share/nvim/necromancer/plugins/nvim-treesitter"
     }
   ]
 }

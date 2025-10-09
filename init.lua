@@ -53,6 +53,43 @@ vim.g['denops#deno'] = '/opt/homebrew/bin/deno'
 
 -- Load necromancer plugins
 local plugin_dir = vim.fn.expand('~/.local/share/nvim/necromancer/plugins')
-for _, plugin in ipairs(vim.fn.readdir(plugin_dir)) do
-  vim.opt.runtimepath:append(plugin_dir .. '/' .. plugin)
+
+-- Load denops.vim first (required by other denops plugins)
+local denops_path = plugin_dir .. '/denops.vim'
+if vim.fn.isdirectory(denops_path) == 1 then
+  vim.opt.runtimepath:prepend(denops_path)
 end
+
+-- Load other plugins
+for _, plugin in ipairs(vim.fn.readdir(plugin_dir)) do
+  if plugin ~= 'denops.vim' then
+    vim.opt.runtimepath:append(plugin_dir .. '/' .. plugin)
+  end
+end
+
+-- Configure nvim-treesitter
+require'nvim-treesitter'.setup {
+  -- Ensure these parsers are installed for the specified languages
+  ensure_installed = { "lua", "rust", "ruby", "typescript" },
+
+  -- Install parsers synchronously (only applied to `ensure_installed`)
+  sync_install = false,
+
+  -- Automatically install missing parsers when entering buffer
+  auto_install = true,
+
+  highlight = {
+    -- `false` will disable the whole extension
+    enable = true,
+
+    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+    -- Using this option may slow down your editor, and you may see some duplicate highlights.
+    -- Instead of true it can also be a list of languages
+    additional_vim_regex_highlighting = false,
+  },
+
+  indent = {
+    enable = true
+  },
+}

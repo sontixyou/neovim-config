@@ -9,6 +9,11 @@
       "name": "denops-helloworld",
       "repo": "https://github.com/vim-denops/denops-helloworld.vim",
       "commit": "f975281571191cfd4e3f9e5ba77103932f7dd6e5"
+    },
+    {
+      "name": "nvim-treesitter",
+      "repo": "https://github.com/nvim-treesitter/nvim-treesitter",
+      "commit": "3ab4f2d2d20be55874e2eb575145c6928d7d7d0e"
     }
   ]
 }
