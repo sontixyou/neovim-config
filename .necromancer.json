@@ -14,6 +14,11 @@
       "name": "nvim-treesitter",
       "repo": "https://github.com/nvim-treesitter/nvim-treesitter",
       "commit": "3ab4f2d2d20be55874e2eb575145c6928d7d7d0e"
+    },
+    {
+      "name": "copilot.vim",
+      "repo": "https://github.com/github/copilot.vim",
+      "commit": "da369d90cfd6c396b1d0ec259836a1c7222fb2ea"
     }
   ]
 }

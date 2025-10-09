@@ -22,6 +22,13 @@
       "commit": "3ab4f2d2d20be55874e2eb575145c6928d7d7d0e",
       "installedAt": "2025-10-09T13:42:22.836Z",
       "path": "/Users/kengo/.local/share/nvim/necromancer/plugins/nvim-treesitter"
+    },
+    {
+      "name": "copilot.vim",
+      "repo": "https://github.com/github/copilot.vim",
+      "commit": "da369d90cfd6c396b1d0ec259836a1c7222fb2ea",
+      "installedAt": "2025-10-09T23:05:00.000Z",
+      "path": "~/.local/share/nvim/necromancer/plugins/copilot.vim"
     }
   ]
 }

@@ -23,7 +23,7 @@ opt.splitright = true -- Put new windows right of current
 opt.termguicolors = true -- True color support
 opt.undofile = true
 opt.undolevels = 10000
-opt.smoothscroll = true
+-- opt.smoothscroll = true -- Not available in Neovim 0.9.5
 
 
 -- keymap
