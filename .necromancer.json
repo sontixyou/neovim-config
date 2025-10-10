@@ -19,6 +19,11 @@
       "name": "vim-test",
       "repo": "https://github.com/vim-test/vim-test",
       "commit": "ad4b7213568d59a5e37606ad65859e3a8e45dbd2"
+    },
+    {
+      "name": "treesj",
+      "repo": "https://github.com/Wansmer/treesj",
+      "commit": "4770492244ccecdc9b01e0e81fa8f2f6b4a23841"
     }
   ]
 }

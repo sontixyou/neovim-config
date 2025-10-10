@@ -1,27 +1,41 @@
 {
   "version": "1",
-  "generated": "2025-10-09T23:55:56.162Z",
+  "generated": "2025-10-10T04:41:42.229Z",
   "plugins": [
     {
       "name": "denops-helloworld",
       "repo": "https://github.com/vim-denops/denops-helloworld.vim",
       "commit": "f975281571191cfd4e3f9e5ba77103932f7dd6e5",
-      "installedAt": "2025-10-09T23:55:52.422Z",
+      "installedAt": "2025-10-10T04:41:38.907Z",
       "path": "/Users/kengo.nishimura/.local/share/nvim/necromancer/plugins/denops-helloworld"
     },
     {
       "name": "denops.vim",
       "repo": "https://github.com/vim-denops/denops.vim",
       "commit": "a278b8342459e4687f24d4d575d72ff593326cee",
-      "installedAt": "2025-10-09T23:55:51.627Z",
+      "installedAt": "2025-10-10T04:41:38.805Z",
       "path": "/Users/kengo.nishimura/.local/share/nvim/necromancer/plugins/denops.vim"
     },
     {
       "name": "nvim-treesitter",
       "repo": "https://github.com/nvim-treesitter/nvim-treesitter",
       "commit": "3ab4f2d2d20be55874e2eb575145c6928d7d7d0e",
-      "installedAt": "2025-10-09T23:55:56.162Z",
+      "installedAt": "2025-10-10T04:41:38.983Z",
       "path": "/Users/kengo.nishimura/.local/share/nvim/necromancer/plugins/nvim-treesitter"
+    },
+    {
+      "name": "vim-test",
+      "repo": "https://github.com/vim-test/vim-test",
+      "commit": "ad4b7213568d59a5e37606ad65859e3a8e45dbd2",
+      "installedAt": "2025-10-10T04:41:41.119Z",
+      "path": "/Users/kengo.nishimura/.local/share/nvim/necromancer/plugins/vim-test"
+    },
+    {
+      "name": "treesj",
+      "repo": "https://github.com/Wansmer/treesj",
+      "commit": "4770492244ccecdc9b01e0e81fa8f2f6b4a23841",
+      "installedAt": "2025-10-10T04:41:42.229Z",
+      "path": "/Users/kengo.nishimura/.local/share/nvim/necromancer/plugins/treesj"
     }
   ]
 }
