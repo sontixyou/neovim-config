@@ -14,6 +14,11 @@
       "name": "nvim-treesitter",
       "repo": "https://github.com/nvim-treesitter/nvim-treesitter",
       "commit": "3ab4f2d2d20be55874e2eb575145c6928d7d7d0e"
+    },
+    {
+      "name": "vim-test",
+      "repo": "https://github.com/vim-test/vim-test",
+      "commit": "ad4b7213568d59a5e37606ad65859e3a8e45dbd2"
     }
   ]
 }
