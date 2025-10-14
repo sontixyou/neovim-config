@@ -2,6 +2,10 @@
 -- require("config.autocmds")
 -- require("config.format")
 
+-- Set leader key to Space (must be set before any <leader> mappings)
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
+
 local opt = vim.opt
 local keymap = vim.keymap
 local opts = { noremap = true, silent = true }
