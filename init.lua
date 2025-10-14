@@ -71,6 +71,17 @@ for _, plugin in ipairs(vim.fn.readdir(plugin_dir)) do
   end
 end
 
+-- Start denops and discover plugins on startup
+vim.api.nvim_create_autocmd('VimEnter', {
+  callback = function()
+    vim.defer_fn(function()
+      if vim.fn.exists('*denops#plugin#discover') == 1 then
+        vim.fn['denops#plugin#discover']()
+      end
+    end, 100)
+  end,
+})
+
 -- Configure nvim-treesitter
 require'nvim-treesitter'.setup {
   -- Ensure these parsers are installed for the specified languages
@@ -97,3 +108,13 @@ require'nvim-treesitter'.setup {
     enable = true
   },
 }
+
+-- Configure seeker.nvim keybinding
+vim.api.nvim_create_autocmd('User', {
+  pattern = 'DenopsReady',
+  callback = function()
+    vim.keymap.set('n', '<leader><leader>', function()
+      vim.fn['denops#notify']('seeker', 'findFiles', {})
+    end, { desc = 'Find Files', noremap = true, silent = true })
+  end,
+})

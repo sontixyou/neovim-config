@@ -24,6 +24,11 @@
       "name": "treesj",
       "repo": "https://github.com/Wansmer/treesj",
       "commit": "4770492244ccecdc9b01e0e81fa8f2f6b4a23841"
+    },
+    {
+      "name": "seeker.nvim",
+      "repo": "https://github.com/sontixyou/seeker.nvim",
+      "commit": "d0a855496920b5bf22136af56cc96105b3210193"
     }
   ]
 }
