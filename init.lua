@@ -27,7 +27,7 @@ opt.splitright = true -- Put new windows right of current
 opt.termguicolors = true -- True color support
 opt.undofile = true
 opt.undolevels = 10000
--- opt.smoothscroll = true -- Not available in this version of Neovim
+opt.smoothscroll = true
 
 
 -- keymap
@@ -82,39 +82,38 @@ vim.api.nvim_create_autocmd('VimEnter', {
   end,
 })
 
--- Configure nvim-treesitter (commented out due to compatibility issues with this neovim version)
--- require'nvim-treesitter'.setup {
---   -- Ensure these parsers are installed for the specified languages
---   ensure_installed = { "lua", "rust", "ruby", "typescript" },
+-- Configure nvim-treesitter
+require'nvim-treesitter'.setup {
+  -- Ensure these parsers are installed for the specified languages
+  ensure_installed = { "lua", "rust", "ruby", "typescript" },
 
---   -- Install parsers synchronously (only applied to `ensure_installed`)
---   sync_install = false,
+  -- Install parsers synchronously (only applied to `ensure_installed`)
+  sync_install = false,
 
---   -- Automatically install missing parsers when entering buffer
---   auto_install = true,
+  -- Automatically install missing parsers when entering buffer
+  auto_install = true,
 
---   highlight = {
---     -- `false` will disable the whole extension
---     enable = true,
+  highlight = {
+    -- `false` will disable the whole extension
+    enable = true,
 
---     -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
---     -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
---     -- Using this option may slow down your editor, and you may see some duplicate highlights.
---     -- Instead of true it can also be a list of languages
---     additional_vim_regex_highlighting = false,
---   },
+    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+    -- Using this option may slow down your editor, and you may see some duplicate highlights.
+    -- Instead of true it can also be a list of languages
+    additional_vim_regex_highlighting = false,
+  },
 
---   indent = {
---     enable = true
---   },
--- }
+  indent = {
+    enable = true
+  },
+}
 
--- Configure telescope (commented out for now to avoid compatibility issues)
--- local builtin = require('telescope.builtin')
--- vim.keymap.set('n', '<leader><leader>', builtin.find_files, { desc = 'Telescope find files' })
--- vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
--- vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
--- vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader><leader>', builtin.find_files, { desc = 'Telescope find files' })
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
+vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
 
 
 -- Configure seeker.nvim keybinding
