@@ -125,3 +125,6 @@ vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help ta
 --     end, { desc = 'Find Files', noremap = true, silent = true })
 --   end,
 -- })
+
+-- Configure autoclose.nvim
+require("autoclose").setup()
