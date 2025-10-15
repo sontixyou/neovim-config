@@ -109,12 +109,19 @@ require'nvim-treesitter'.setup {
   },
 }
 
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader><leader>', builtin.find_files, { desc = 'Telescope find files' })
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
+vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
+
+
 -- Configure seeker.nvim keybinding
-vim.api.nvim_create_autocmd('User', {
-  pattern = 'DenopsReady',
-  callback = function()
-    vim.keymap.set('n', '<leader><leader>', function()
-      vim.fn['denops#notify']('seeker', 'findFiles', {})
-    end, { desc = 'Find Files', noremap = true, silent = true })
-  end,
-})
+-- vim.api.nvim_create_autocmd('User', {
+--   pattern = 'DenopsReady',
+--   callback = function()
+--     vim.keymap.set('n', '<leader><leader>', function()
+--       vim.fn['denops#notify']('seeker', 'findFiles', {})
+--     end, { desc = 'Find Files', noremap = true, silent = true })
+--   end,
+-- })
