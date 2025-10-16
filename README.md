@@ -13,10 +13,9 @@
 - `npm install -g typescript typescript-language-server`
   - for development of Typescript application
 
-
 ## Start Neovim
 
-```bash
+```sh
 cd ~/.config/nvim
 necromaner install
 nvim .
