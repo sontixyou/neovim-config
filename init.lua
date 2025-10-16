@@ -35,6 +35,17 @@ vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHo
   end,
 })
 
+-- Highlight yanked text with orange color
+vim.api.nvim_set_hl(0, 'YankHighlight', { bg = '#ff9e64', fg = '#000000' })
+vim.api.nvim_create_autocmd('TextYankPost', {
+  callback = function()
+    vim.highlight.on_yank({
+      higroup = 'YankHighlight',
+      timeout = 300,
+    })
+  end,
+})
+
 
 -- keymap
 keymap.set("i", "jj", "<ESC>", opts)
