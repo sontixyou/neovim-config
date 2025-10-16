@@ -67,6 +67,11 @@
       "name": "nvim-web-devicons",
       "repo": "https://github.com/nvim-tree/nvim-web-devicons",
       "commit": "b8221e42cf7287c4dcde81f232f58d7b947c210d"
+    },
+    {
+      "name": "nvim-lspconfig",
+      "repo": "https://github.com/neovim/nvim-lspconfig",
+      "commit": "5bfcc89fd155b4ffc02d18ab3b7d19c2d4e246a7"
     }
   ]
 }
