@@ -1,6 +1,6 @@
 # Setup
 
-## Rquirements
+## Requirements
 
 - Install Neovim ver 0.12 or higher
   - copilot-lsp-server requires Neovim ver 0.12 or higher
@@ -11,10 +11,18 @@
   - see https://deno.land/manual/getting_started/installation
 - Install necromaner.nvim
   - see https://github.com/sontixyou/necromancer.nvim
+- Install ripgrep
+  - Required for Telescope's live grep functionality
+  - see https://github.com/BurntSushi/ripgrep#installation
+- Install Nerd Font
+  - Required for proper icon display in bufferline, neo-tree, and other plugins
+  - see https://www.nerdfonts.com/font-downloads
 - `gem install ruby-lsp`
   - development of Rails application
 - `npm install -g typescript typescript-language-server`
   - for development of Typescript application
+- `npm install -g @github/copilot-language-server`
+  - GitHub Copilot language server for AI-powered code completion
 
 ## Start Neovim
 
