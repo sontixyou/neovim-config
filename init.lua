@@ -307,3 +307,16 @@ vim.lsp.config('ruby_lsp', {
 
 -- Enable ruby_lsp
 vim.lsp.enable('ruby_lsp')
+
+-- Configure ts_ls
+vim.lsp.config('ts_ls', {
+  cmd = { "typescript-language-server", "--stdio" },
+  filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
+  init_options = {
+    hostInfo = "neovim"
+  },
+  root_markers = { "package.json", "tsconfig.json", "jsconfig.json", ".git" }
+})
+
+-- Enable ts_ls
+vim.lsp.enable('ts_ls')
