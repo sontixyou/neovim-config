@@ -128,6 +128,13 @@ require'nvim-treesitter'.setup {
   },
 }
 
+-- Configure telescope.nvim
+require('telescope').setup {
+  defaults = {
+    file_ignore_patterns = { "^.git/" }
+  }
+}
+
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader><leader>', function()
   builtin.find_files({ hidden = true })
