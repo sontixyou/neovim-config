@@ -89,6 +89,11 @@
       "repo": "https://github.com/sindrets/diffview.nvim",
       "commit": "4516612fe98ff56ae0415a259ff6361a89419b0a",
       "dependencies": ["plenary.nvim", "nvim-web-devicons"]
+    },
+    {
+      "name": "blink.cmp",
+      "repo": "https://github.com/Saghen/blink.cmp",
+      "commit": "327fff91fe6af358e990be7be1ec8b78037d2138"
     }
   ]
 }
