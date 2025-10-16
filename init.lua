@@ -365,21 +365,14 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
     -- Inline completion (for Copilot)
     -- Only enable if the API is available (Neovim 0.11+)
-    if vim.lsp.inline_completion and client and client.supports_method(vim.lsp.protocol.Methods.textDocument_inlineCompletion, bufnr) then
+    if not vim.lsp.inline_completion.get() then
       vim.lsp.inline_completion.enable(true, { bufnr = bufnr })
 
-      -- vim.keymap.set(
-      --   'i',
-      --   '<C-F>',
-      --   vim.lsp.inline_completion.get,
-      --   { desc = 'LSP: accept inline completion', buffer = bufnr }
-      -- )
-      vim.keymap.set(
-        'i',
-        '<C-G>',
-        vim.lsp.inline_completion.select,
-        { desc = 'LSP: switch inline completion', buffer = bufnr }
-      )
+      vim.keymap.set('i', '<tab>', function()
+        if not vim.lsp.inline_completion.get() then
+          return '<tab>'
+        end
+      end, { expr = true })
     end
   end,
 })
