@@ -38,12 +38,13 @@ This is a Neovim configuration repository using **Necromancer** as the plugin ma
 
 The entire Neovim configuration is contained in a single `init.lua` file with the following structure:
 
-1. **Leader Key Setup** (lines 1-3): Space is set as both leader and local leader
-2. **Editor Settings** (lines 5-26): Indentation, spell check, clipboard, undo settings
-3. **Keymaps** (lines 29-50): Custom keybindings for insert mode, terminal, windows, and navigation
-4. **Denops Configuration** (lines 52-79): Loads denops.vim and denops plugins from necromancer directory
-5. **Plugin Configurations** (lines 81-214): Setup for nvim-treesitter, Telescope, toggleterm, treesj, autoclose, and neo-tree
-6. **Additional Keybinds** (lines 217-229): Plugin-specific keybindings
+1. **Leader Key Setup**: Space is set as both leader and local leader
+2. **Editor Settings**: Indentation (2 spaces), spell check, clipboard sync, undo settings, auto-reload on external changes
+3. **Core Keymaps**: Insert mode (`jj` to escape), terminal, window management, file path copying
+4. **Denops Configuration**: Loads denops.vim first, then other plugins from necromancer directory with 100ms auto-discovery delay
+5. **Plugin Configurations**: nvim-treesitter, Telescope (with .git filtering), toggleterm, treesj, autoclose, neo-tree
+6. **Testing Setup**: vim-test integration with neovim strategy
+7. **LSP Configuration**: ruby-lsp with comprehensive keybindings via LspAttach autocmd
 
 ### Plugin Loading System
 
@@ -55,20 +56,25 @@ Necromancer installs plugins to `~/.local/share/nvim/necromancer/plugins/`. The 
 ### Key Plugins and Their Purpose
 
 - **denops.vim**: Enables Neovim plugins written in TypeScript/JavaScript via Deno
-- **nvim-treesitter**: Syntax highlighting and code parsing for Lua, Rust, Ruby, TypeScript
-- **telescope.nvim**: Fuzzy finder for files, grep, buffers, help tags
-- **toggleterm.nvim**: Terminal management (configured for vertical split)
-- **neo-tree.nvim**: File explorer with filesystem, buffers, git status, and document symbols
-- **treesj**: Split/join code blocks
+- **nvim-treesitter**: Syntax highlighting and code parsing for Lua, Rust, Ruby, TypeScript with auto-install
+- **telescope.nvim**: Fuzzy finder for files (shows hidden files), grep, buffers, help tags; ignores .git directory
+- **toggleterm.nvim**: Terminal management (vertical split by default)
+- **neo-tree.nvim**: File explorer with filesystem, buffers, git status, and document symbols; always shows dotfiles and common config files
+- **vim-test**: Test runner with neovim strategy for running nearest test, file, last test, or entire suite
+- **treesj**: Split/join code blocks using treesitter
 - **autoclose.nvim**: Auto-close brackets and quotes
+- **seeker.nvim**: Denops-based fuzzy finder (currently commented out in favor of Telescope)
+- **ruby-lsp**: Ruby Language Server Protocol support with auto-formatting
 
 ### Important Configuration Details
 
-- **Deno Path**: Hardcoded to `/opt/homebrew/bin/deno` (line 52)
-- **Treesitter Languages**: Configured for Lua, Rust, Ruby, TypeScript with auto-install enabled
-- **Toggleterm**: Opens vertically by default with `<C-\>` or `<leader>tt`
-- **Neo-tree**: Shows dotfiles and git-ignored files, configured to always show common config files
-- **Telescope**: Main file finder is `<leader><leader>`
+- **Deno Path**: Hardcoded to `/opt/homebrew/bin/deno`
+- **Treesitter Languages**: Lua, Rust, Ruby, TypeScript with auto-install enabled
+- **Toggleterm**: Opens vertically by default with `<C-\>`
+- **Neo-tree**: Shows dotfiles and git-ignored files, always displays common config files (.gitignore, .env, .rubocop.yml, etc.)
+- **Telescope**: Configured to ignore `.git/` directory, shows hidden files by default
+- **LSP**: ruby-lsp enabled with auto-formatter, uses Gemfile or .git as root markers
+- **Auto-reload**: Files automatically reload when changed externally (FocusGained, BufEnter, CursorHold)
 
 ## Key Bindings Reference
 
@@ -85,23 +91,60 @@ Necromancer installs plugins to `~/.local/share/nvim/necromancer/plugins/`. The 
 - `<leader>sx` - Close current split
 - `<C-h/j/k/l>` - Navigate between windows
 
-### Plugin Keybindings
-- `<leader><leader>` - Telescope find files
+### File Navigation & Search
+- `<leader><leader>` - Telescope find files (includes hidden files)
 - `<leader>fg` - Telescope live grep
 - `<leader>fb` - Telescope buffers
 - `<leader>fh` - Telescope help tags
-- `<leader>tt` - Toggle terminal
 - `<leader>e` - Toggle neo-tree file explorer
 - `<leader>ge` - Toggle git status explorer
-- `,b` - Insert `debugger` on new line (for debugging)
+
+### Testing (vim-test)
+- `<leader>tt` - Run test nearest to cursor
+- `<leader>tT` - Run current test file
+- `<leader>tl` - Run last test
+- `<leader>ta` - Run all tests (test suite)
+
+### LSP Keybindings (Ruby files)
+- `gd` - Go to definition
+- `gD` - Go to declaration
+- `gr` - Show references
+- `gi` - Go to implementation
+- `K` - Show hover documentation
+- `<C-k>` - Signature help
+- `<leader>ca` - Code action
+- `<leader>rn` - Rename symbol
+- `<leader>f` - Format buffer (async)
+- `<leader>d` - Show diagnostic in float
+- `[d` / `]d` - Previous/next diagnostic
+
+### Utilities
+- `<leader>cp` - Copy relative file path to clipboard
+- `<leader>cP` - Copy absolute file path to clipboard
+- `<C-\>` - Toggle terminal
+- `,b` - Insert `debugger` on new line
 
 ### Terminal Mode
 - `jj` - Exit terminal mode and close terminal
 
 ## Development Workflow
 
-When modifying this configuration:
+### Prerequisites
+
+- Install `ruby-lsp` gem for Ruby development: `gem install ruby-lsp`
+- Ensure Deno is installed at `/opt/homebrew/bin/deno` for denops plugins
+
+### Modifying Configuration
+
 1. Edit `init.lua` for configuration changes
 2. For new plugins: update `.necromancer.json` with exact commit hash, then run `necromancer install`
-3. Restart Neovim or `:source init.lua` to apply changes
+3. Restart Neovim or `:source ~/.config/nvim/init.lua` to apply changes
 4. Verify denops plugins load correctly (100ms delay on startup)
+
+### LSP Setup
+
+The ruby-lsp is configured to auto-start on Ruby and ERB files. LSP keybindings are set up via the `LspAttach` autocmd, which applies them only when an LSP client successfully attaches to a buffer. This ensures LSP functionality is only available when the language server is actually running.
+
+### Testing Workflow
+
+Tests run using the neovim strategy, which opens results in a split window within Neovim. The test runner (vim-test) automatically detects the test framework based on file patterns and project structure.
