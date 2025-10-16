@@ -336,6 +336,7 @@ vim.keymap.set("n", "<leader>ta", "<cmd>TestSuite -strategy=neovim<cr>", { desc 
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(args)
     local bufnr = args.buf
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
     local opts = { buffer = bufnr, noremap = true, silent = true }
 
     -- Navigation
@@ -361,6 +362,25 @@ vim.api.nvim_create_autocmd('LspAttach', {
     keymap.set('n', '<leader>f', function()
       vim.lsp.buf.format({ async = true })
     end, vim.tbl_extend('force', opts, { desc = 'Format buffer' }))
+
+    -- Inline completion (for Copilot)
+    -- Only enable if the API is available (Neovim 0.11+)
+    if vim.lsp.inline_completion and client and client.supports_method(vim.lsp.protocol.Methods.textDocument_inlineCompletion, bufnr) then
+      vim.lsp.inline_completion.enable(true, { bufnr = bufnr })
+
+      -- vim.keymap.set(
+      --   'i',
+      --   '<C-F>',
+      --   vim.lsp.inline_completion.get,
+      --   { desc = 'LSP: accept inline completion', buffer = bufnr }
+      -- )
+      vim.keymap.set(
+        'i',
+        '<C-G>',
+        vim.lsp.inline_completion.select,
+        { desc = 'LSP: switch inline completion', buffer = bufnr }
+      )
+    end
   end,
 })
 
@@ -389,3 +409,29 @@ vim.lsp.config('ts_ls', {
 
 -- Enable ts_ls
 vim.lsp.enable('ts_ls')
+
+-- Configure copilot
+vim.lsp.config('copilot', {
+  cmd = { "copilot-language-server", "--stdio" },
+  filetypes = {
+    "javascript", "javascriptreact", "typescript", "typescriptreact",
+    "python", "ruby", "go", "rust", "java", "c", "cpp", "lua",
+    "vim", "sh", "bash", "zsh", "html", "css", "scss", "json",
+    "yaml", "markdown", "php", "swift", "kotlin", "scala"
+  },
+  root_markers = { ".git" },
+  capabilities = {
+    textDocument = {
+      inlineCompletion = {
+        dynamicRegistration = false,
+      },
+    },
+    workspace = {
+      configuration = true,
+    },
+  },
+})
+
+-- Enable copilot
+vim.lsp.enable('copilot')
+
