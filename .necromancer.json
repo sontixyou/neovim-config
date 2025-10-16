@@ -72,6 +72,11 @@
       "name": "nvim-lspconfig",
       "repo": "https://github.com/neovim/nvim-lspconfig",
       "commit": "5bfcc89fd155b4ffc02d18ab3b7d19c2d4e246a7"
+    },
+    {
+      "name": "gitsigns.nvim",
+      "repo": "https://github.com/lewis6991/gitsigns.nvim",
+      "commit": "7010000889bfb6c26065e0b0f7f1e6aa9163edd9"
     }
   ]
 }
