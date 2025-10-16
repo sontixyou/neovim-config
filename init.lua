@@ -128,7 +128,7 @@ require("toggleterm").setup({
   insert_mappings = true, -- whether or not the open mapping applies in insert mode
   terminal_mappings = true, -- whether or not the open mapping applies in the opened terminals
   persist_size = true,
-  direction = 'float', -- 'horizontal' | 'vertical' | 'float' | 'tab'
+  direction = 'vertical', -- 'horizontal' | 'vertical' | 'float' | 'tab'
   close_on_exit = true, -- close the terminal window when the process exits
   shell = vim.o.shell, -- change the default shell
   -- This field is only relevant if direction is set to 'float'
@@ -146,9 +146,9 @@ require("toggleterm").setup({
 
 -- Toggleterm keymaps
 vim.keymap.set('n', '<leader>tt', '<cmd>ToggleTerm<cr>', { desc = 'Toggle terminal' })
-vim.keymap.set('n', '<leader>tf', '<cmd>ToggleTerm direction=float<cr>', { desc = 'Toggle floating terminal' })
-vim.keymap.set('n', '<leader>th', '<cmd>ToggleTerm direction=horizontal<cr>', { desc = 'Toggle horizontal terminal' })
-vim.keymap.set('n', '<leader>tv', '<cmd>ToggleTerm direction=vertical size=80<cr>', { desc = 'Toggle vertical terminal' })
+vim.keymap.set('n', '<leader>tt', '<cmd>ToggleTerm direction=horizontal<cr>', { desc = 'Toggle horizontal terminal' })
+
+-- Treesj
 require('treesj').setup({})
 
 
