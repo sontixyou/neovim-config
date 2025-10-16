@@ -431,6 +431,20 @@ vim.keymap.set("n", "<leader>dvh", "<cmd>DiffviewFileHistory %<cr>", { desc = "F
 vim.keymap.set("n", "<leader>dvf", "<cmd>DiffviewFileHistory<cr>", { desc = "File history (all)" })
 vim.keymap.set("n", "<leader>dvr", "<cmd>DiffviewRefresh<cr>", { desc = "Refresh diff view" })
 
+-- Configure blink.cmp
+require('blink.cmp').setup({
+  keymap = { preset = 'default' },
+  appearance = {
+    nerd_font_variant = 'mono'
+  },
+  completion = {
+    documentation = { auto_show = false }
+  },
+  sources = {
+    default = { 'lsp', 'path', 'snippets', 'buffer' }
+  }
+})
+
 -- LSP Configuration
 -- LSP keymaps (set up when LSP attaches to buffer)
 vim.api.nvim_create_autocmd('LspAttach', {
@@ -484,7 +498,8 @@ vim.lsp.config('ruby_lsp', {
   init_options = {
     formatter = "auto"
   },
-  root_markers = { "Gemfile", ".git" }
+  root_markers = { "Gemfile", ".git" },
+  capabilities = require('blink.cmp').get_lsp_capabilities()
 })
 
 -- Enable ruby_lsp
@@ -497,13 +512,22 @@ vim.lsp.config('ts_ls', {
   init_options = {
     hostInfo = "neovim"
   },
-  root_markers = { "package.json", "tsconfig.json", "jsconfig.json", ".git" }
+  root_markers = { "package.json", "tsconfig.json", "jsconfig.json", ".git" },
+  capabilities = require('blink.cmp').get_lsp_capabilities()
 })
 
 -- Enable ts_ls
 vim.lsp.enable('ts_ls')
 
 -- Configure copilot
+local copilot_capabilities = require('blink.cmp').get_lsp_capabilities()
+copilot_capabilities.textDocument = copilot_capabilities.textDocument or {}
+copilot_capabilities.textDocument.inlineCompletion = {
+  dynamicRegistration = false,
+}
+copilot_capabilities.workspace = copilot_capabilities.workspace or {}
+copilot_capabilities.workspace.configuration = true
+
 vim.lsp.config('copilot', {
   cmd = { "copilot-language-server", "--stdio" },
   filetypes = {
@@ -513,16 +537,7 @@ vim.lsp.config('copilot', {
     "yaml", "markdown", "php", "swift", "kotlin", "scala"
   },
   root_markers = { ".git" },
-  capabilities = {
-    textDocument = {
-      inlineCompletion = {
-        dynamicRegistration = false,
-      },
-    },
-    workspace = {
-      configuration = true,
-    },
-  },
+  capabilities = copilot_capabilities,
 })
 
 -- Enable copilot
