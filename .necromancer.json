@@ -41,6 +41,11 @@
       "repo": "https://github.com/nvim-telescope/telescope.nvim",
       "commit": "b4da76be54691e854d3e0e02c36b0245f945c2c7",
       "dependencies": ["plenary.nvim"]
+    },
+    {
+      "name": "autoclose.nvim",
+      "repo": "https://github.com/m4xshen/autoclose.nvim",
+      "commit": "3f86702b54a861a17d7994b2e32a7c648cb12fb1"
     }
   ]
 }

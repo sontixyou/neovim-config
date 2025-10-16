@@ -127,3 +127,6 @@ require('treesj').setup({})
 --     end, { desc = 'Find Files', noremap = true, silent = true })
 --   end,
 -- })
+
+-- Configure autoclose.nvim
+require("autoclose").setup()
