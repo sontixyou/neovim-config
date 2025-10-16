@@ -433,12 +433,17 @@ vim.keymap.set("n", "<leader>dvr", "<cmd>DiffviewRefresh<cr>", { desc = "Refresh
 
 -- Configure blink.cmp
 require('blink.cmp').setup({
-  keymap = { preset = 'default' },
+  keymap = { preset = 'enter' },
   appearance = {
     nerd_font_variant = 'mono'
   },
   completion = {
-    documentation = { auto_show = false }
+    documentation = { auto_show = false },
+    list = {
+      selection = {
+        preselect = false
+      }
+    }
   },
   sources = {
     default = { 'lsp', 'path', 'snippets', 'buffer' }
