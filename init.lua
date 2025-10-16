@@ -142,7 +142,7 @@ require'nvim-treesitter'.setup {
 -- Configure telescope.nvim
 require('telescope').setup {
   defaults = {
-    file_ignore_patterns = { "^.git/" }
+    file_ignore_patterns = { ".git/" }
   }
 }
 
@@ -347,7 +347,6 @@ require("neo-tree").setup({
         ".dockleignore",
         ".editorconfig",
         ".env",
-        ".git",
         ".github",
         ".gitignore",
         ".husky",
