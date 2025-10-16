@@ -24,6 +24,16 @@ opt.termguicolors = true -- True color support
 opt.undofile = true
 opt.undolevels = 10000
 opt.smoothscroll = true
+opt.autoread = true -- Automatically read files when changed outside of Neovim
+
+-- Auto reload files when they are changed externally
+vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHoldI" }, {
+  callback = function()
+    if vim.fn.mode() ~= 'c' then
+      vim.cmd('checktime')
+    end
+  end,
+})
 
 
 -- keymap
