@@ -1,7 +1,3 @@
--- require("config.lazy")
--- require("config.autocmds")
--- require("config.format")
-
 -- Set leader key to Space (must be set before any <leader> mappings)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
@@ -144,9 +140,6 @@ require("toggleterm").setup({
   }
 })
 
--- Toggleterm keymaps
-vim.keymap.set('n', '<leader>tt', '<cmd>ToggleTerm<cr>', { desc = 'Toggle terminal' })
-vim.keymap.set('n', '<leader>tt', '<cmd>ToggleTerm direction=horizontal<cr>', { desc = 'Toggle horizontal terminal' })
 
 -- Treesj
 require('treesj').setup({})
@@ -164,3 +157,73 @@ require('treesj').setup({})
 
 -- Configure autoclose.nvim
 require("autoclose").setup()
+
+require("neo-tree").setup({
+  sources = { "filesystem", "buffers", "git_status", "document_symbols" },
+  open_files_do_not_replace_types = { "terminal", "Trouble", "trouble", "qf", "Outline" },
+  filesystem = {
+    bind_to_cwd = false,
+    follow_current_file = { enabled = true },
+    use_libuv_file_watcher = true,
+    filtered_items = {
+      always_show = {
+        ".gitignore",
+        ".dockerignore",
+        ".dockleignore",
+        ".editorconfig",
+        ".env",
+        ".git",
+        ".github",
+        ".gitignore",
+        ".husky",
+        ".irb_history",
+        ".irbrc",
+        ".prettierrc",
+        ".rspec",
+        ".rubocop.yml",
+        ".ruby-lsp",
+        ".tool-versions",
+        ".vscode",
+      },
+      hide_dotfiles = false,
+      hide_gitignored = false,
+    },
+  },
+  window = {
+    mappings = {
+      ["<space>"] = "none",
+    },
+  },
+  default_component_configs = {
+    indent = {
+      with_expanders = true,
+      expander_collapsed = "",
+      expander_expanded = "",
+      expander_highlight = "NeoTreeExpander",
+    },
+    file_size = {
+      enabled = false,
+    },
+    type = {
+      enabled = false,
+    },
+    last_modified = {
+      enabled = false,
+    },
+  },
+})
+
+
+-- key binding
+-- Toggleterm keymaps
+vim.keymap.set('n', '<leader>tt', '<cmd>ToggleTerm<cr>', { desc = 'Toggle terminal' })
+vim.keymap.set('n', '<leader>tt', '<cmd>ToggleTerm direction=horizontal<cr>', { desc = 'Toggle horizontal terminal' })
+
+-- Neo-tree keybinds
+vim.keymap.set("n", "<leader>e", function()
+  require("neo-tree.command").execute({ toggle = true, dir = vim.fn.getcwd() })
+end, { desc = "Toggle file tree" })
+
+vim.keymap.set("n", "<leader>ge", function()
+  require("neo-tree.command").execute({ source = "git_status", toggle = true })
+end, { desc = "Git Explorer" })
