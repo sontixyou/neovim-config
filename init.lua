@@ -40,6 +40,19 @@ keymap.set("n", "<leader>sx", ":close<CR>", opts) -- close current split window
 keymap.set("n", ",b", "odebugger<Esc>", opts)
 keymap.set({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
 
+-- Copy file path to clipboard
+keymap.set("n", "<leader>cp", function()
+  local path = vim.fn.expand('%')
+  vim.fn.setreg('+', path)
+  vim.notify('Copied relative path: ' .. path)
+end, { desc = 'Copy relative file path to clipboard' })
+
+keymap.set("n", "<leader>cP", function()
+  local path = vim.fn.expand('%:p')
+  vim.fn.setreg('+', path)
+  vim.notify('Copied absolute path: ' .. path)
+end, { desc = 'Copy absolute file path to clipboard' })
+
 keymap.set("n", "<C-h>", "<C-w>h", { desc = "Move to left window" })
 keymap.set("n", "<C-j>", "<C-w>j", { desc = "Move to lower window" })
 keymap.set("n", "<C-k>", "<C-w>k", { desc = "Move to upper window" })
