@@ -256,6 +256,10 @@ vim.keymap.set("n", "<leader>ge", function()
   require("neo-tree.command").execute({ source = "git_status", toggle = true })
 end, { desc = "Git Explorer" })
 
+vim.keymap.set("n", "<leader>E", function()
+  require("neo-tree.command").execute({ source = "git_status", toggle = true })
+end, { desc = "Git Status" })
+
 -- vim-test keybinds
 vim.keymap.set("n", "<leader>tt", "<cmd>TestNearest -strategy=neovim<cr>", { desc = "Test nearest" })
 vim.keymap.set("n", "<leader>tT", "<cmd>TestFile -strategy=neovim<cr>", { desc = "Test file" })
