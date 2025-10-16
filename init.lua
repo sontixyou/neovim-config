@@ -240,10 +240,6 @@ require("neo-tree").setup({
 
 
 -- key binding
--- Toggleterm keymaps
-vim.keymap.set('n', '<leader>tt', '<cmd>ToggleTerm<cr>', { desc = 'Toggle terminal' })
-vim.keymap.set('n', '<leader>tt', '<cmd>ToggleTerm direction=horizontal<cr>', { desc = 'Toggle horizontal terminal' })
-
 -- Neo-tree keybinds
 vim.keymap.set("n", "<leader>e", function()
   require("neo-tree.command").execute({ toggle = true, dir = vim.fn.getcwd() })
