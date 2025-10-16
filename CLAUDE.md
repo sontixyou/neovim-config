@@ -91,7 +91,7 @@ Uses **Neovim 0.10+ native LSP** (`vim.lsp.config()` and `vim.lsp.enable()`):
 
 - **ruby_lsp**: Ruby and ERB files, auto-formatter, root markers: Gemfile, .git
 - **ts_ls**: JavaScript/TypeScript/JSX/TSX files, root markers: package.json, tsconfig.json, jsconfig.json, .git
-- **copilot**: 17 language filetypes, inline completion enabled (Neovim 0.11+)
+- **copilot**: 17 language filetypes, inline completion enabled (Neovim 0.12+)
 
 All LSP servers are integrated with blink.cmp for enhanced completion capabilities.
 
@@ -180,7 +180,7 @@ All LSP servers are integrated with blink.cmp for enhanced completion capabiliti
 ### Prerequisites
 
 **Required versions:**
-- **Neovim 0.10+** (0.11+ recommended for Copilot inline completion)
+- **Neovim 0.12+** (0.12+ recommended for Copilot inline completion)
 - **Node.js 22+** (for Copilot and TypeScript LSP)
 - **Deno** installed at `/opt/homebrew/bin/deno` (for denops plugins)
 
