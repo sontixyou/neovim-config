@@ -39,12 +39,12 @@ This is a Neovim configuration repository using **Necromancer** as the plugin ma
 The entire Neovim configuration is contained in a single `init.lua` file with the following structure:
 
 1. **Leader Key Setup**: Space is set as both leader and local leader
-2. **Editor Settings**: Indentation (2 spaces), spell check, clipboard sync, undo settings, auto-reload on external changes
-3. **Core Keymaps**: Insert mode (`jj` to escape), terminal, window management, file path copying
+2. **Editor Settings**: Indentation (2 spaces), spell check, clipboard sync, undo settings, auto-reload on external changes, yank highlight
+3. **Core Keymaps**: Insert mode (`jj` to escape), terminal, window management, file path copying, better indenting
 4. **Denops Configuration**: Loads denops.vim first, then other plugins from necromancer directory with 100ms auto-discovery delay
-5. **Plugin Configurations**: nvim-treesitter, Telescope (with .git filtering), toggleterm, treesj, autoclose, neo-tree
-6. **Testing Setup**: vim-test integration with neovim strategy
-7. **LSP Configuration**: ruby-lsp with comprehensive keybindings via LspAttach autocmd
+5. **Plugin Configurations**: nvim-treesitter, Telescope, toggleterm, treesj, autoclose, bufferline, gitsigns, diffview, neo-tree, blink.cmp
+6. **Testing Setup**: vim-test integration with neovim strategy for Jest and RSpec
+7. **LSP Configuration**: ruby_lsp, ts_ls, and copilot with comprehensive keybindings via LspAttach autocmd
 
 ### Plugin Loading System
 
@@ -60,11 +60,17 @@ Necromancer installs plugins to `~/.local/share/nvim/necromancer/plugins/`. The 
 - **telescope.nvim**: Fuzzy finder for files (shows hidden files), grep, buffers, help tags; ignores .git directory
 - **toggleterm.nvim**: Terminal management (vertical split by default)
 - **neo-tree.nvim**: File explorer with filesystem, buffers, git status, and document symbols; always shows dotfiles and common config files
-- **vim-test**: Test runner with neovim strategy for running nearest test, file, last test, or entire suite
+- **vim-test**: Test runner with neovim strategy for Jest, RSpec, and other test frameworks
 - **treesj**: Split/join code blocks using treesitter
 - **autoclose.nvim**: Auto-close brackets and quotes
+- **bufferline.nvim**: Buffer/tab management with visual indicators, diagnostics, and pin functionality
+- **gitsigns.nvim**: Git diff indicators in sign column with hunk navigation and staging
+- **diffview.nvim**: Advanced diff viewing with side-by-side comparison and file history
+- **blink.cmp**: Modern Rust-based completion engine with LSP integration and snippet support
 - **seeker.nvim**: Denops-based fuzzy finder (currently commented out in favor of Telescope)
 - **ruby-lsp**: Ruby Language Server Protocol support with auto-formatting
+- **ts_ls**: TypeScript/JavaScript Language Server for full IDE features
+- **copilot**: GitHub Copilot integration with inline completion support
 
 ### Important Configuration Details
 
@@ -73,8 +79,21 @@ Necromancer installs plugins to `~/.local/share/nvim/necromancer/plugins/`. The 
 - **Toggleterm**: Opens vertically by default with `<C-\>`
 - **Neo-tree**: Shows dotfiles and git-ignored files, always displays common config files (.gitignore, .env, .rubocop.yml, etc.)
 - **Telescope**: Configured to ignore `.git/` directory, shows hidden files by default
-- **LSP**: ruby-lsp enabled with auto-formatter, uses Gemfile or .git as root markers
+- **Blink.cmp**: Uses 'enter' preset (Enter confirms completion), preselect disabled, sources: lsp, path, snippets, buffer
+- **Gitsigns**: Shows diff against HEAD (not index), so staged changes remain visible
+- **Bufferline**: Shows diagnostics, supports pinning buffers, neo-tree offset
+- **Yank Highlight**: Orange color (#ff9e64) on yanked text, 300ms timeout
 - **Auto-reload**: Files automatically reload when changed externally (FocusGained, BufEnter, CursorHold)
+
+### LSP Configuration
+
+Uses **Neovim 0.10+ native LSP** (`vim.lsp.config()` and `vim.lsp.enable()`):
+
+- **ruby_lsp**: Ruby and ERB files, auto-formatter, root markers: Gemfile, .git
+- **ts_ls**: JavaScript/TypeScript/JSX/TSX files, root markers: package.json, tsconfig.json, jsconfig.json, .git
+- **copilot**: 17 language filetypes, inline completion enabled (Neovim 0.11+)
+
+All LSP servers are integrated with blink.cmp for enhanced completion capabilities.
 
 ## Key Bindings Reference
 
@@ -98,6 +117,28 @@ Necromancer installs plugins to `~/.local/share/nvim/necromancer/plugins/`. The 
 - `<leader>fh` - Telescope help tags
 - `<leader>e` - Toggle neo-tree file explorer
 - `<leader>ge` - Toggle git status explorer
+- `<leader>E` - Toggle git status (same as <leader>ge)
+
+### Buffer Management (bufferline)
+- `<S-h>` - Previous buffer
+- `<S-l>` - Next buffer
+- `<leader>bp` - Toggle pin buffer
+- `<leader>bP` - Delete non-pinned buffers
+- `<leader>bo` - Delete other buffers
+- `<leader>br` - Delete buffers to the right
+- `<leader>bl` - Delete buffers to the left
+- `gb` - Pick buffer
+
+### Git Integration (gitsigns)
+- `]c` - Next hunk
+- `[c` - Previous hunk
+
+### Diff Viewing (diffview)
+- `<leader>dvo` - Open diff view
+- `<leader>dvc` - Close diff view
+- `<leader>dvh` - File history (current file)
+- `<leader>dvf` - File history (all files)
+- `<leader>dvr` - Refresh diff view
 
 ### Testing (vim-test)
 - `<leader>tt` - Run test nearest to cursor
@@ -105,7 +146,7 @@ Necromancer installs plugins to `~/.local/share/nvim/necromancer/plugins/`. The 
 - `<leader>tl` - Run last test
 - `<leader>ta` - Run all tests (test suite)
 
-### LSP Keybindings (Ruby files)
+### LSP Keybindings (available when LSP attaches)
 - `gd` - Go to definition
 - `gD` - Go to declaration
 - `gr` - Show references
@@ -117,6 +158,13 @@ Necromancer installs plugins to `~/.local/share/nvim/necromancer/plugins/`. The 
 - `<leader>f` - Format buffer (async)
 - `<leader>d` - Show diagnostic in float
 - `[d` / `]d` - Previous/next diagnostic
+
+### Completion (blink.cmp)
+- `<CR>` (Enter) - Accept selected completion
+- `<C-Space>` - Open completion menu or documentation
+- `<C-n>` / `<C-p>` - Navigate completion items (or arrow keys)
+- `<C-e>` - Close completion menu
+- `<C-k>` - Toggle signature help
 
 ### Utilities
 - `<leader>cp` - Copy relative file path to clipboard
@@ -131,8 +179,15 @@ Necromancer installs plugins to `~/.local/share/nvim/necromancer/plugins/`. The 
 
 ### Prerequisites
 
-- Install `ruby-lsp` gem for Ruby development: `gem install ruby-lsp`
-- Ensure Deno is installed at `/opt/homebrew/bin/deno` for denops plugins
+**Required versions:**
+- **Neovim 0.10+** (0.11+ recommended for Copilot inline completion)
+- **Node.js 22+** (for Copilot and TypeScript LSP)
+- **Deno** installed at `/opt/homebrew/bin/deno` (for denops plugins)
+
+**Language servers:**
+- **Ruby**: `gem install ruby-lsp`
+- **TypeScript/JavaScript**: `npm install -g typescript-language-server`
+- **Copilot**: `npm install -g @github/copilot-language-server` (optional)
 
 ### Modifying Configuration
 
@@ -143,8 +198,23 @@ Necromancer installs plugins to `~/.local/share/nvim/necromancer/plugins/`. The 
 
 ### LSP Setup
 
-The ruby-lsp is configured to auto-start on Ruby and ERB files. LSP keybindings are set up via the `LspAttach` autocmd, which applies them only when an LSP client successfully attaches to a buffer. This ensures LSP functionality is only available when the language server is actually running.
+LSP keybindings are set up via the `LspAttach` autocmd, which applies them only when an LSP client successfully attaches to a buffer. This ensures LSP functionality is only available when the language server is actually running.
+
+**Configured language servers:**
+- **ruby_lsp**: Ruby and ERB files
+- **ts_ls**: JavaScript, TypeScript, JSX, TSX files
+- **copilot**: Multi-language inline completion
+
+All LSP servers integrate with blink.cmp for completion.
 
 ### Testing Workflow
 
-Tests run using the neovim strategy, which opens results in a split window within Neovim. The test runner (vim-test) automatically detects the test framework based on file patterns and project structure.
+**vim-test** runs tests using the neovim strategy (results in split window).
+
+**Jest configuration:**
+- JavaScript/TypeScript test files: `*.test.js`, `*.spec.js`, `*.test.ts`, `*.spec.ts`, `*.test.tsx`, `*.spec.tsx`
+- Executable: `npx jest`
+- Automatically detects test framework based on file patterns
+
+**RSpec configuration:**
+- Automatically detects RSpec for Ruby files in `spec/` directory
