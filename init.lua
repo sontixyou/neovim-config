@@ -403,6 +403,21 @@ vim.keymap.set("n", "<leader>E", function()
   require("neo-tree.command").execute({ source = "git_status", toggle = true })
 end, { desc = "Git Status" })
 
+-- vim-test configuration for Jest
+-- Remove --test-file option and pass file path directly as argument
+vim.g['test#javascript#runner'] = 'jest'
+vim.g['test#typescript#runner'] = 'jest'
+vim.g['test#typescriptreact#runner'] = 'jest'  -- For .tsx files
+vim.g['test#javascriptreact#runner'] = 'jest'  -- For .jsx files
+vim.g['test#javascript#jest#file_pattern'] = '\\v(test|spec)\\.(js|jsx|ts|tsx)$'
+vim.g['test#typescript#jest#file_pattern'] = '\\v(test|spec)\\.(ts|tsx)$'
+vim.g['test#typescriptreact#jest#file_pattern'] = '\\v(test|spec)\\.tsx$'
+vim.g['test#javascriptreact#jest#file_pattern'] = '\\v(test|spec)\\.jsx$'
+vim.g['test#javascript#jest#executable'] = 'npx jest'
+vim.g['test#typescript#jest#executable'] = 'npx jest'
+vim.g['test#typescriptreact#jest#executable'] = 'npx jest'
+vim.g['test#javascriptreact#jest#executable'] = 'npx jest'
+
 -- vim-test keybinds
 vim.keymap.set("n", "<leader>tt", "<cmd>TestNearest -strategy=neovim<cr>", { desc = "Test nearest" })
 vim.keymap.set("n", "<leader>tT", "<cmd>TestFile -strategy=neovim<cr>", { desc = "Test file" })
