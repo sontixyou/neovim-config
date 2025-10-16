@@ -1,62 +1,69 @@
 {
   "version": "1",
-  "generated": "2025-10-15T15:02:43.614Z",
+  "generated": "2025-10-15T23:25:06.054Z",
   "plugins": [
     {
       "name": "denops-helloworld",
       "repo": "https://github.com/vim-denops/denops-helloworld.vim",
       "commit": "f975281571191cfd4e3f9e5ba77103932f7dd6e5",
-      "installedAt": "2025-10-15T15:02:43.472Z",
+      "installedAt": "2025-10-15T23:24:59.989Z",
       "path": "~/.local/share/nvim/necromancer/plugins/denops-helloworld"
     },
     {
       "name": "denops.vim",
       "repo": "https://github.com/vim-denops/denops.vim",
       "commit": "a278b8342459e4687f24d4d575d72ff593326cee",
-      "installedAt": "2025-10-15T15:02:43.450Z",
+      "installedAt": "2025-10-15T23:24:59.379Z",
       "path": "~/.local/share/nvim/necromancer/plugins/denops.vim"
     },
     {
       "name": "nvim-treesitter",
       "repo": "https://github.com/nvim-treesitter/nvim-treesitter",
       "commit": "3ab4f2d2d20be55874e2eb575145c6928d7d7d0e",
-      "installedAt": "2025-10-15T15:02:43.518Z",
+      "installedAt": "2025-10-15T23:25:01.308Z",
       "path": "~/.local/share/nvim/necromancer/plugins/nvim-treesitter"
     },
     {
       "name": "vim-test",
       "repo": "https://github.com/vim-test/vim-test",
       "commit": "ad4b7213568d59a5e37606ad65859e3a8e45dbd2",
-      "installedAt": "2025-10-15T15:02:43.539Z",
+      "installedAt": "2025-10-15T23:25:02.072Z",
       "path": "~/.local/share/nvim/necromancer/plugins/vim-test"
     },
     {
       "name": "treesj",
       "repo": "https://github.com/Wansmer/treesj",
       "commit": "4770492244ccecdc9b01e0e81fa8f2f6b4a23841",
-      "installedAt": "2025-10-15T15:02:43.558Z",
+      "installedAt": "2025-10-15T23:25:02.726Z",
       "path": "~/.local/share/nvim/necromancer/plugins/treesj"
     },
     {
       "name": "seeker.nvim",
       "repo": "https://github.com/sontixyou/seeker.nvim",
       "commit": "d0a855496920b5bf22136af56cc96105b3210193",
-      "installedAt": "2025-10-15T15:02:43.577Z",
+      "installedAt": "2025-10-15T23:25:03.403Z",
       "path": "~/.local/share/nvim/necromancer/plugins/seeker.nvim"
     },
     {
       "name": "telescope.nvim",
       "repo": "https://github.com/nvim-telescope/telescope.nvim",
       "commit": "b4da76be54691e854d3e0e02c36b0245f945c2c7",
-      "installedAt": "2025-10-15T15:02:43.614Z",
+      "installedAt": "2025-10-15T23:25:06.054Z",
       "path": "~/.local/share/nvim/necromancer/plugins/telescope.nvim"
     },
     {
       "name": "plenary.nvim",
       "repo": "https://github.com/nvim-lua/plenary.nvim",
       "commit": "b9fd5226c2f76c951fc8ed5923d85e4de065e509",
-      "installedAt": "2025-10-15T15:02:43.596Z",
+      "installedAt": "2025-10-15T23:25:04.327Z",
       "path": "~/.local/share/nvim/necromancer/plugins/plenary.nvim"
+    },
+    {
+      "name": "autoclose.nvim",
+      "repo": "https://github.com/m4xshen/autoclose.nvim",
+      "commit": "3f86702b54a861a17d7994b2e32a7c648cb12fb1",
+      "installedAt": "2025-10-15T23:25:05.157Z",
+      "path": "~/.local/share/nvim/necromancer/plugins/autoclose.nvim"
     }
   ]
 }

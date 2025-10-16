@@ -23,7 +23,8 @@
     {
       "name": "treesj",
       "repo": "https://github.com/Wansmer/treesj",
-      "commit": "4770492244ccecdc9b01e0e81fa8f2f6b4a23841"
+      "commit": "4770492244ccecdc9b01e0e81fa8f2f6b4a23841",
+      "depedencies": ["nvim-treesitter"]
     },
     {
       "name": "seeker.nvim",
@@ -45,6 +46,11 @@
       "name": "toggleterm.nvim",
       "repo": "https://github.com/akinsho/toggleterm.nvim",
       "commit": "50ea089fc548917cc3cc16b46a8211833b9e3c7c"
+    },
+    {
+      "name": "autoclose.nvim",
+      "repo": "https://github.com/m4xshen/autoclose.nvim",
+      "commit": "3f86702b54a861a17d7994b2e32a7c648cb12fb1"
     }
   ]
 }

@@ -149,6 +149,7 @@ vim.keymap.set('n', '<leader>tt', '<cmd>ToggleTerm<cr>', { desc = 'Toggle termin
 vim.keymap.set('n', '<leader>tf', '<cmd>ToggleTerm direction=float<cr>', { desc = 'Toggle floating terminal' })
 vim.keymap.set('n', '<leader>th', '<cmd>ToggleTerm direction=horizontal<cr>', { desc = 'Toggle horizontal terminal' })
 vim.keymap.set('n', '<leader>tv', '<cmd>ToggleTerm direction=vertical size=80<cr>', { desc = 'Toggle vertical terminal' })
+require('treesj').setup({})
 
 
 -- Configure seeker.nvim keybinding
@@ -160,3 +161,6 @@ vim.keymap.set('n', '<leader>tv', '<cmd>ToggleTerm direction=vertical size=80<cr
 --     end, { desc = 'Find Files', noremap = true, silent = true })
 --   end,
 -- })
+
+-- Configure autoclose.nvim
+require("autoclose").setup()
