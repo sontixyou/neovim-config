@@ -248,3 +248,9 @@ end, { desc = "Toggle file tree" })
 vim.keymap.set("n", "<leader>ge", function()
   require("neo-tree.command").execute({ source = "git_status", toggle = true })
 end, { desc = "Git Explorer" })
+
+-- vim-test keybinds
+vim.keymap.set("n", "<leader>tt", "<cmd>TestNearest -strategy=neovim<cr>", { desc = "Test nearest" })
+vim.keymap.set("n", "<leader>tT", "<cmd>TestFile -strategy=neovim<cr>", { desc = "Test file" })
+vim.keymap.set("n", "<leader>tl", "<cmd>TestLast -strategy=neovim<cr>", { desc = "Test last" })
+vim.keymap.set("n", "<leader>ta", "<cmd>TestSuite -strategy=neovim<cr>", { desc = "Test all" })

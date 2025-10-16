@@ -1,96 +1,96 @@
 {
   "version": "1",
-  "generated": "2025-10-16T00:37:00.173Z",
+  "generated": "2025-10-16T12:13:54.836Z",
   "plugins": [
     {
       "name": "denops-helloworld",
       "repo": "https://github.com/vim-denops/denops-helloworld.vim",
       "commit": "f975281571191cfd4e3f9e5ba77103932f7dd6e5",
-      "installedAt": "2025-10-16T00:36:59.957Z",
+      "installedAt": "2025-10-16T12:13:49.882Z",
       "path": "~/.local/share/nvim/necromancer/plugins/denops-helloworld"
     },
     {
       "name": "denops.vim",
       "repo": "https://github.com/vim-denops/denops.vim",
       "commit": "a278b8342459e4687f24d4d575d72ff593326cee",
-      "installedAt": "2025-10-16T00:36:59.937Z",
+      "installedAt": "2025-10-16T12:13:49.438Z",
       "path": "~/.local/share/nvim/necromancer/plugins/denops.vim"
     },
     {
       "name": "nvim-treesitter",
       "repo": "https://github.com/nvim-treesitter/nvim-treesitter",
       "commit": "3ab4f2d2d20be55874e2eb575145c6928d7d7d0e",
-      "installedAt": "2025-10-16T00:36:59.977Z",
+      "installedAt": "2025-10-16T12:13:50.220Z",
       "path": "~/.local/share/nvim/necromancer/plugins/nvim-treesitter"
     },
     {
       "name": "vim-test",
       "repo": "https://github.com/vim-test/vim-test",
       "commit": "ad4b7213568d59a5e37606ad65859e3a8e45dbd2",
-      "installedAt": "2025-10-16T00:36:59.998Z",
+      "installedAt": "2025-10-16T12:13:50.683Z",
       "path": "~/.local/share/nvim/necromancer/plugins/vim-test"
     },
     {
       "name": "treesj",
       "repo": "https://github.com/Wansmer/treesj",
       "commit": "4770492244ccecdc9b01e0e81fa8f2f6b4a23841",
-      "installedAt": "2025-10-16T00:37:00.017Z",
+      "installedAt": "2025-10-16T12:13:51.135Z",
       "path": "~/.local/share/nvim/necromancer/plugins/treesj"
     },
     {
       "name": "seeker.nvim",
       "repo": "https://github.com/sontixyou/seeker.nvim",
       "commit": "d0a855496920b5bf22136af56cc96105b3210193",
-      "installedAt": "2025-10-16T00:37:00.040Z",
+      "installedAt": "2025-10-16T12:13:51.575Z",
       "path": "~/.local/share/nvim/necromancer/plugins/seeker.nvim"
     },
     {
       "name": "telescope.nvim",
       "repo": "https://github.com/nvim-telescope/telescope.nvim",
       "commit": "b4da76be54691e854d3e0e02c36b0245f945c2c7",
-      "installedAt": "2025-10-16T00:37:00.152Z",
+      "installedAt": "2025-10-16T12:13:54.386Z",
       "path": "~/.local/share/nvim/necromancer/plugins/telescope.nvim"
     },
     {
       "name": "plenary.nvim",
       "repo": "https://github.com/nvim-lua/plenary.nvim",
       "commit": "b9fd5226c2f76c951fc8ed5923d85e4de065e509",
-      "installedAt": "2025-10-16T00:37:00.058Z",
+      "installedAt": "2025-10-16T12:13:52.021Z",
       "path": "~/.local/share/nvim/necromancer/plugins/plenary.nvim"
     },
     {
       "name": "autoclose.nvim",
       "repo": "https://github.com/m4xshen/autoclose.nvim",
       "commit": "3f86702b54a861a17d7994b2e32a7c648cb12fb1",
-      "installedAt": "2025-10-16T00:37:00.095Z",
+      "installedAt": "2025-10-16T12:13:52.922Z",
       "path": "~/.local/share/nvim/necromancer/plugins/autoclose.nvim"
     },
     {
       "name": "toggleterm.nvim",
       "repo": "https://github.com/akinsho/toggleterm.nvim",
       "commit": "50ea089fc548917cc3cc16b46a8211833b9e3c7c",
-      "installedAt": "2025-10-16T00:37:00.077Z",
+      "installedAt": "2025-10-16T12:13:52.470Z",
       "path": "~/.local/share/nvim/necromancer/plugins/toggleterm.nvim"
     },
     {
       "name": "neo-tree.nvim",
       "repo": "https://github.com/nvim-neo-tree/neo-tree.nvim",
       "commit": "c4c168e459395275c552179a1baf9c3d885d6a74",
-      "installedAt": "2025-10-16T00:37:00.173Z",
+      "installedAt": "2025-10-16T12:13:54.836Z",
       "path": "~/.local/share/nvim/necromancer/plugins/neo-tree.nvim"
     },
     {
       "name": "nui.nvim",
       "repo": "https://github.com/MunifTanjim/nui.nvim",
       "commit": "f535005e6ad1016383f24e39559833759453564e",
-      "installedAt": "2025-10-16T00:37:00.115Z",
+      "installedAt": "2025-10-16T12:13:53.459Z",
       "path": "~/.local/share/nvim/necromancer/plugins/nui.nvim"
     },
     {
       "name": "nvim-web-devicons",
       "repo": "https://github.com/nvim-tree/nvim-web-devicons",
       "commit": "b8221e42cf7287c4dcde81f232f58d7b947c210d",
-      "installedAt": "2025-10-16T00:37:00.133Z",
+      "installedAt": "2025-10-16T12:13:53.923Z",
       "path": "~/.local/share/nvim/necromancer/plugins/nvim-web-devicons"
     }
   ]
