@@ -254,3 +254,17 @@ vim.keymap.set("n", "<leader>tt", "<cmd>TestNearest -strategy=neovim<cr>", { des
 vim.keymap.set("n", "<leader>tT", "<cmd>TestFile -strategy=neovim<cr>", { desc = "Test file" })
 vim.keymap.set("n", "<leader>tl", "<cmd>TestLast -strategy=neovim<cr>", { desc = "Test last" })
 vim.keymap.set("n", "<leader>ta", "<cmd>TestSuite -strategy=neovim<cr>", { desc = "Test all" })
+
+-- LSP Configuration
+-- Configure ruby_lsp
+vim.lsp.config('ruby_lsp', {
+  cmd = { "ruby-lsp" },
+  filetypes = { "ruby", "eruby" },
+  init_options = {
+    formatter = "auto"
+  },
+  root_markers = { "Gemfile", ".git" }
+})
+
+-- Enable ruby_lsp
+vim.lsp.enable('ruby_lsp')
