@@ -83,6 +83,12 @@
       "repo": "https://github.com/akinsho/bufferline.nvim",
       "commit": "655133c3b4c3e5e05ec549b9f8cc2894ac6f51b3",
       "dependencies": ["nvim-web-devicons"]
+    },
+    {
+      "name": "diffview.nvim",
+      "repo": "https://github.com/sindrets/diffview.nvim",
+      "commit": "4516612fe98ff56ae0415a259ff6361a89419b0a",
+      "dependencies": ["plenary.nvim", "nvim-web-devicons"]
     }
   ]
 }

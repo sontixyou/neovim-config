@@ -398,6 +398,13 @@ vim.keymap.set("n", "<leader>tT", "<cmd>TestFile -strategy=neovim<cr>", { desc =
 vim.keymap.set("n", "<leader>tl", "<cmd>TestLast -strategy=neovim<cr>", { desc = "Test last" })
 vim.keymap.set("n", "<leader>ta", "<cmd>TestSuite -strategy=neovim<cr>", { desc = "Test all" })
 
+-- diffview.nvim keybinds
+vim.keymap.set("n", "<leader>dvo", "<cmd>DiffviewOpen<cr>", { desc = "Open diff view" })
+vim.keymap.set("n", "<leader>dvc", "<cmd>DiffviewClose<cr>", { desc = "Close diff view" })
+vim.keymap.set("n", "<leader>dvh", "<cmd>DiffviewFileHistory %<cr>", { desc = "File history (current file)" })
+vim.keymap.set("n", "<leader>dvf", "<cmd>DiffviewFileHistory<cr>", { desc = "File history (all)" })
+vim.keymap.set("n", "<leader>dvr", "<cmd>DiffviewRefresh<cr>", { desc = "Refresh diff view" })
+
 -- LSP Configuration
 -- LSP keymaps (set up when LSP attaches to buffer)
 vim.api.nvim_create_autocmd('LspAttach', {
