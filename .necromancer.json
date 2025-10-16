@@ -51,6 +51,22 @@
       "name": "autoclose.nvim",
       "repo": "https://github.com/m4xshen/autoclose.nvim",
       "commit": "3f86702b54a861a17d7994b2e32a7c648cb12fb1"
+    },
+    {
+      "name": "neo-tree.nvim",
+      "repo": "https://github.com/nvim-neo-tree/neo-tree.nvim",
+      "commit": "c4c168e459395275c552179a1baf9c3d885d6a74",
+      "dependencies": ["plenary.nvim", "nui.nvim", "nvim-web-devicons"]
+    },
+    {
+      "name": "nui.nvim",
+      "repo": "https://github.com/MunifTanjim/nui.nvim",
+      "commit": "f535005e6ad1016383f24e39559833759453564e"
+    },
+    {
+      "name": "nvim-web-devicons",
+      "repo": "https://github.com/nvim-tree/nvim-web-devicons",
+      "commit": "b8221e42cf7287c4dcde81f232f58d7b947c210d"
     }
   ]
 }
