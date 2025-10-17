@@ -63,7 +63,7 @@ keymap.set({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save Fi
 
 -- Copy file path to clipboard
 keymap.set("n", "<leader>cp", function()
-  local path = vim.fn.expand('%')
+  local path = vim.fn.fnamemodify(vim.fn.expand('%:p'), ':.')
   vim.fn.setreg('+', path)
   vim.notify('Copied relative path: ' .. path)
 end, { desc = 'Copy relative file path to clipboard' })
