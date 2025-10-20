@@ -1,6 +1,6 @@
 {
   "version": "1",
-  "generated": "2025-10-20T13:54:27.939Z",
+  "generated": "2025-10-20T14:07:16.689Z",
   "plugins": [
     {
       "name": "denops-helloworld",
@@ -64,13 +64,6 @@
       "commit": "3f86702b54a861a17d7994b2e32a7c648cb12fb1",
       "installedAt": "2025-10-16T15:22:57.952Z",
       "path": "~/.local/share/nvim/necromancer/plugins/autoclose.nvim"
-    },
-    {
-      "name": "toggleterm.nvim",
-      "repo": "https://github.com/akinsho/toggleterm.nvim",
-      "commit": "50ea089fc548917cc3cc16b46a8211833b9e3c7c",
-      "installedAt": "2025-10-16T15:22:57.499Z",
-      "path": "~/.local/share/nvim/necromancer/plugins/toggleterm.nvim"
     },
     {
       "name": "neo-tree.nvim",
