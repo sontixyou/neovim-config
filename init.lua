@@ -458,6 +458,10 @@ require("conform").setup({
     javascriptreact = { "prettier"},
     typescript = { "prettier" },
     typescriptreact = { "prettier" },
+    -- CSS/SCSS/Sass: use stylelint
+    css = { "stylelint" },
+    scss = { "stylelint" },
+    sass = { "stylelint" },
     -- Rust with LSP fallback
     rust = { "rustfmt", lsp_format = "fallback" },
     ["_"] = { "trim_whitespace" },
