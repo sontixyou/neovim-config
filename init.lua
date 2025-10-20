@@ -452,7 +452,6 @@ require('blink.cmp').setup({
 -- Configure conform.nvim
 require("conform").setup({
   formatters_by_ft = {
-    -- lua = { "stylua" },
     ruby = { "rubocop", lsp_format = "fallback" },
     -- JavaScript/TypeScript: run the first available formatter
     javascript = { "prettier" },
@@ -518,7 +517,7 @@ vim.lsp.config('ruby_lsp', {
   cmd = { "ruby-lsp" },
   filetypes = { "ruby", "eruby" },
   init_options = {
-    formatter = "none"  -- Disable ruby_lsp formatter, use conform.nvim instead
+    formatter = "auto"
   },
   root_markers = { "Gemfile", ".git" },
   capabilities = require('blink.cmp').get_lsp_capabilities()
