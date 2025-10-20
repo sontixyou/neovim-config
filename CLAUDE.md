@@ -42,7 +42,7 @@ The entire Neovim configuration is contained in a single `init.lua` file with th
 2. **Editor Settings**: Indentation (2 spaces), spell check, clipboard sync, undo settings, auto-reload on external changes, yank highlight
 3. **Core Keymaps**: Insert mode (`jj` to escape), terminal, window management, file path copying, better indenting
 4. **Denops Configuration**: Loads denops.vim first, then other plugins from necromancer directory with 100ms auto-discovery delay
-5. **Plugin Configurations**: nvim-treesitter, Telescope, toggleterm, treesj, autoclose, bufferline, gitsigns, diffview, neo-tree, blink.cmp
+5. **Plugin Configurations**: nvim-treesitter, Telescope, treesj, autoclose, bufferline, gitsigns, diffview, neo-tree, blink.cmp
 6. **Testing Setup**: vim-test integration with neovim strategy for Jest and RSpec
 7. **LSP Configuration**: ruby_lsp, ts_ls, and copilot with comprehensive keybindings via LspAttach autocmd
 
@@ -58,7 +58,6 @@ Necromancer installs plugins to `~/.local/share/nvim/necromancer/plugins/`. The 
 - **denops.vim**: Enables Neovim plugins written in TypeScript/JavaScript via Deno
 - **nvim-treesitter**: Syntax highlighting and code parsing for Lua, Rust, Ruby, TypeScript with auto-install
 - **telescope.nvim**: Fuzzy finder for files (shows hidden files), grep, buffers, help tags; ignores .git directory
-- **toggleterm.nvim**: Terminal management (vertical split by default)
 - **neo-tree.nvim**: File explorer with filesystem, buffers, git status, and document symbols; always shows dotfiles and common config files
 - **vim-test**: Test runner with neovim strategy for Jest, RSpec, and other test frameworks
 - **treesj**: Split/join code blocks using treesitter
@@ -76,7 +75,6 @@ Necromancer installs plugins to `~/.local/share/nvim/necromancer/plugins/`. The 
 
 - **Deno Path**: Hardcoded to `/opt/homebrew/bin/deno`
 - **Treesitter Languages**: Lua, Rust, Ruby, TypeScript with auto-install enabled
-- **Toggleterm**: Opens vertically by default with `<C-\>`
 - **Neo-tree**: Shows dotfiles and git-ignored files, always displays common config files (.gitignore, .env, .rubocop.yml, etc.)
 - **Telescope**: Configured to ignore `.git/` directory, shows hidden files by default
 - **Blink.cmp**: Uses 'enter' preset (Enter confirms completion), preselect disabled, sources: lsp, path, snippets, buffer
@@ -169,7 +167,6 @@ All LSP servers are integrated with blink.cmp for enhanced completion capabiliti
 ### Utilities
 - `<leader>cp` - Copy relative file path to clipboard
 - `<leader>cP` - Copy absolute file path to clipboard
-- `<C-\>` - Toggle terminal
 - `,b` - Insert `debugger` on new line
 
 ### Terminal Mode
