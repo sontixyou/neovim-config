@@ -201,6 +201,25 @@ require('treesj').setup({})
 -- Configure autoclose.nvim
 require("autoclose").setup()
 
+-- Configure auto-session
+require('auto-session').setup({
+  log_level = "error",
+  auto_session_suppress_dirs = { "~/", "~/Downloads", "/tmp", "/" },
+  auto_session_create_enabled = true,
+  auto_save_enabled = true,
+  auto_restore_enabled = true,
+  session_lens = {
+    -- Display session picker when restoring
+    load_on_setup = true,
+  },
+})
+
+-- auto-session keybinds
+vim.keymap.set("n", "<leader>ss", "<cmd>SessionSave<cr>", { desc = "Save session" })
+vim.keymap.set("n", "<leader>sr", "<cmd>SessionRestore<cr>", { desc = "Restore session" })
+vim.keymap.set("n", "<leader>sd", "<cmd>SessionDelete<cr>", { desc = "Delete session" })
+vim.keymap.set("n", "<leader>sf", "<cmd>SessionSearch<cr>", { desc = "Search sessions" })
+
 -- Configure bufferline.nvim
 require('bufferline').setup {
   options = {
