@@ -94,6 +94,11 @@
       "name": "blink.cmp",
       "repo": "https://github.com/Saghen/blink.cmp",
       "commit": "327fff91fe6af358e990be7be1ec8b78037d2138"
+    },
+    {
+      "name": "conform.nvim",
+      "repo": "https://github.com/stevearc/conform.nvim",
+      "commit": "3543d000dafbc41cc7761d860cfdb24e82154f75"
     }
   ]
 }

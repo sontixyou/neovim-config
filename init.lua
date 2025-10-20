@@ -449,6 +449,24 @@ require('blink.cmp').setup({
   }
 })
 
+-- Configure conform.nvim
+require("conform").setup({
+  formatters_by_ft = {
+    -- lua = { "stylua" },
+    ruby = { "rubocop", lsp_format = "fallback" },
+    -- JavaScript/TypeScript: run the first available formatter
+    javascript = { "prettier" },
+    javascriptreact = { "prettier"},
+    typescript = { "prettier" },
+    typescriptreact = { "prettier" },
+    -- Rust with LSP fallback
+    rust = { "rustfmt", lsp_format = "fallback" },
+    ["_"] = { "trim_whitespace" },
+  },
+  format_on_save = true, -- Disable auto-format on save (use manual <leader>f instead)
+  }) 
+
+
 -- LSP Configuration
 -- LSP keymaps (set up when LSP attaches to buffer)
 vim.api.nvim_create_autocmd('LspAttach', {
@@ -476,9 +494,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
     keymap.set('n', ']d', vim.diagnostic.goto_next, vim.tbl_extend('force', opts, { desc = 'Next diagnostic' }))
     keymap.set('n', '<leader>d', vim.diagnostic.open_float, vim.tbl_extend('force', opts, { desc = 'Show diagnostic' }))
 
-    -- Formatting
+    -- Formatting with conform.nvim
     keymap.set('n', '<leader>f', function()
-      vim.lsp.buf.format({ async = true })
+      require("conform").format({ async = true, lsp_format = "fallback" })
     end, vim.tbl_extend('force', opts, { desc = 'Format buffer' }))
 
     -- Inline completion (for Copilot)
@@ -500,7 +518,7 @@ vim.lsp.config('ruby_lsp', {
   cmd = { "ruby-lsp" },
   filetypes = { "ruby", "eruby" },
   init_options = {
-    formatter = "auto"
+    formatter = "none"  -- Disable ruby_lsp formatter, use conform.nvim instead
   },
   root_markers = { "Gemfile", ".git" },
   capabilities = require('blink.cmp').get_lsp_capabilities()
