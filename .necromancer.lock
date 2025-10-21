@@ -1,6 +1,6 @@
 {
   "version": "1",
-  "generated": "2025-10-20T14:07:16.689Z",
+  "generated": "2025-10-21T05:24:19.302Z",
   "plugins": [
     {
       "name": "denops-helloworld",
@@ -125,14 +125,14 @@
       "name": "conform.nvim",
       "repo": "https://github.com/stevearc/conform.nvim",
       "commit": "3543d000dafbc41cc7761d860cfdb24e82154f75",
-      "installedAt": "2025-10-20T13:29:35.641Z",
+      "installedAt": "2025-10-21T05:24:18.300Z",
       "path": "~/.local/share/nvim/necromancer/plugins/conform.nvim"
     },
     {
       "name": "auto-session",
       "repo": "https://github.com/rmagatti/auto-session",
       "commit": "79ef41274354a486cf4f100a7adf4a7575802ccf",
-      "installedAt": "2025-10-20T13:54:26.102Z",
+      "installedAt": "2025-10-21T05:24:19.232Z",
       "path": "~/.local/share/nvim/necromancer/plugins/auto-session"
     }
   ]
