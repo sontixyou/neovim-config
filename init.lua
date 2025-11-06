@@ -115,7 +115,7 @@ vim.api.nvim_create_autocmd('VimEnter', {
 -- Configure nvim-treesitter
 require'nvim-treesitter'.setup {
   -- Ensure these parsers are installed for the specified languages
-  ensure_installed = { "lua", "rust", "ruby", "typescript" },
+  ensure_installed = { "lua", "rust", "ruby", "typescript", "php" },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,
@@ -456,7 +456,7 @@ require("conform").setup({
     ["_"] = { "trim_whitespace" },
   },
   format_on_save = true, -- Disable auto-format on save (use manual <leader>f instead)
-  }) 
+  })
 
 
 -- LSP Configuration
@@ -557,3 +557,10 @@ vim.lsp.config('copilot', {
 -- Enable copilot
 vim.lsp.enable('copilot')
 
+-- Enable tailwindcss
+vim.lsp.enable('tailwindcss')
+
+vim.lsp.config('tailwindcss', {
+  cmd = { "tailwindcss-language-server", "--stdio" },
+  filetypes = {"css", "less", "postcss", "sass", "scss", "javascript", "javascriptreact", "reason", "rescript", "typescript", "typescriptreact" }
+})
