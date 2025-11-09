@@ -23,6 +23,14 @@
   - for development of Typescript application
 - `npm install -g @github/copilot-language-server`
   - GitHub Copilot language server for AI-powered code completion
+- Install phpactor (for PHP development)
+  ```sh
+  cd ~/projects/php-projects
+  git clone https://github.com/phpactor/phpactor.git
+  cd phpactor
+  composer install
+  ```
+  - Language server for PHP development with completion, navigation, and refactoring
 
 ## Start Neovim
 
