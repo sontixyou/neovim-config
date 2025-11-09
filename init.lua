@@ -564,3 +564,14 @@ vim.lsp.config('tailwindcss', {
   cmd = { "tailwindcss-language-server", "--stdio" },
   filetypes = {"css", "less", "postcss", "sass", "scss", "javascript", "javascriptreact", "reason", "rescript", "typescript", "typescriptreact" }
 })
+
+-- Configure phpactor
+vim.lsp.config('phpactor', {
+  cmd = { vim.fn.expand("~/projects/php-projects/phpactor/bin/phpactor"), "language-server" },
+  filetypes = { "php" },
+  root_markers = { "composer.json", ".git" },
+  capabilities = require('blink.cmp').get_lsp_capabilities()
+})
+
+-- Enable phpactor
+vim.lsp.enable('phpactor')
