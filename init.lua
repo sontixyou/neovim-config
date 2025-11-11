@@ -391,12 +391,51 @@ vim.keymap.set("n", "<leader>E", function()
   require("neo-tree.command").execute({ source = "git_status", toggle = true })
 end, { desc = "Git Status" })
 
--- vim-test configuration for Jest
--- Remove --test-file option and pass file path directly as argument
-vim.g['test#javascript#runner'] = 'jest'
-vim.g['test#typescript#runner'] = 'jest'
-vim.g['test#typescriptreact#runner'] = 'jest'  -- For .tsx files
-vim.g['test#javascriptreact#runner'] = 'jest'  -- For .jsx files
+-- vim-test configuration: auto-detect Jest or Vitest based on config files
+-- Function to detect test runner based on project files
+local function detect_js_test_runner()
+  local root = vim.fn.getcwd()
+  -- Check for vitest config first (vitest.config.*, vite.config.*)
+  if vim.fn.filereadable(root .. '/vitest.config.ts') == 1 or
+     vim.fn.filereadable(root .. '/vitest.config.mts') == 1 or
+     vim.fn.filereadable(root .. '/vitest.config.js') == 1 or
+     vim.fn.filereadable(root .. '/vitest.config.mjs') == 1 or
+     vim.fn.filereadable(root .. '/vite.config.ts') == 1 or
+     vim.fn.filereadable(root .. '/vite.config.mts') == 1 then
+    return 'vitest'
+  -- Check for jest config
+  elseif vim.fn.filereadable(root .. '/jest.config.js') == 1 or
+         vim.fn.filereadable(root .. '/jest.config.ts') == 1 or
+         vim.fn.filereadable(root .. '/jest.config.mjs') == 1 or
+         vim.fn.filereadable(root .. '/jest.config.json') == 1 then
+    return 'jest'
+  end
+  -- Default to vitest
+  return 'vitest'
+end
+
+-- Set runner on directory change
+vim.api.nvim_create_autocmd({'VimEnter', 'DirChanged'}, {
+  callback = function()
+    local runner = detect_js_test_runner()
+    vim.g['test#javascript#runner'] = runner
+    vim.g['test#typescript#runner'] = runner
+    vim.g['test#typescriptreact#runner'] = runner
+    vim.g['test#javascriptreact#runner'] = runner
+  end
+})
+
+-- Vitest configuration
+vim.g['test#javascript#vitest#file_pattern'] = '\\v(test|spec)\\.(js|jsx|ts|tsx)$'
+vim.g['test#typescript#vitest#file_pattern'] = '\\v(test|spec)\\.(ts|tsx)$'
+vim.g['test#typescriptreact#vitest#file_pattern'] = '\\v(test|spec)\\.tsx$'
+vim.g['test#javascriptreact#vitest#file_pattern'] = '\\v(test|spec)\\.jsx$'
+vim.g['test#javascript#vitest#executable'] = 'npx vitest'
+vim.g['test#typescript#vitest#executable'] = 'npx vitest'
+vim.g['test#typescriptreact#vitest#executable'] = 'npx vitest'
+vim.g['test#javascriptreact#vitest#executable'] = 'npx vitest'
+
+-- Jest configuration
 vim.g['test#javascript#jest#file_pattern'] = '\\v(test|spec)\\.(js|jsx|ts|tsx)$'
 vim.g['test#typescript#jest#file_pattern'] = '\\v(test|spec)\\.(ts|tsx)$'
 vim.g['test#typescriptreact#jest#file_pattern'] = '\\v(test|spec)\\.tsx$'
@@ -442,11 +481,13 @@ require('blink.cmp').setup({
 require("conform").setup({
   formatters_by_ft = {
     ruby = { "rubocop", lsp_format = "fallback" },
-    -- JavaScript/TypeScript: run the first available formatter
-    javascript = { "prettier" },
-    javascriptreact = { "prettier"},
-    typescript = { "prettier" },
-    typescriptreact = { "prettier" },
+    -- JavaScript/TypeScript: use Biome (fallback to prettier if not available)
+    javascript = { "biome", "prettier", stop_after_first = true },
+    javascriptreact = { "biome", "prettier", stop_after_first = true },
+    typescript = { "biome", "prettier", stop_after_first = true },
+    typescriptreact = { "biome", "prettier", stop_after_first = true },
+    json = { "biome", "prettier", stop_after_first = true },
+    jsonc = { "biome", "prettier", stop_after_first = true },
     -- CSS/SCSS/Sass: use stylelint
     css = { "stylelint" },
     scss = { "stylelint" },
@@ -455,8 +496,19 @@ require("conform").setup({
     rust = { "rustfmt", lsp_format = "fallback" },
     ["_"] = { "trim_whitespace" },
   },
-  format_on_save = true, -- Disable auto-format on save (use manual <leader>f instead)
-  })
+  formatters = {
+    biome = {
+      command = "node_modules/.bin/biome",
+      args = { "check", "--write", "--stdin-file-path", "$FILENAME" },
+      stdin = true,
+      cwd = require("conform.util").root_file({ "biome.json", "package.json" }),
+    },
+  },
+  format_on_save = {
+    timeout_ms = 3000,
+    lsp_format = "fallback",
+  },
+})
 
 
 -- LSP Configuration
@@ -570,7 +622,12 @@ vim.lsp.config('phpactor', {
   cmd = { vim.fn.expand("~/projects/php-projects/phpactor/bin/phpactor"), "language-server" },
   filetypes = { "php" },
   root_markers = { "composer.json", ".git" },
-  capabilities = require('blink.cmp').get_lsp_capabilities()
+  capabilities = require('blink.cmp').get_lsp_capabilities(),
+  init_options = {
+    ["language_server_phpstan.enabled"] = enable,
+    ["language_server_psalm.enabled"] = false,
+    ["symfony.enabled"] = false,
+  }
 })
 
 -- Enable phpactor
