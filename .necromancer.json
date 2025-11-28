@@ -99,6 +99,12 @@
       "name": "auto-session",
       "repo": "https://github.com/rmagatti/auto-session",
       "commit": "79ef41274354a486cf4f100a7adf4a7575802ccf"
+    },
+    {
+      "name": "nvim-treesitter-textobjects",
+      "repo": "https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
+      "commit": "227165aaeb07b567fb9c066f224816aa8f3ce63f",
+      "dependencies": ["nvim-treesitter"]
     }
   ]
 }

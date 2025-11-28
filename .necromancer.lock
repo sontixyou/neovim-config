@@ -1,6 +1,6 @@
 {
   "version": "1",
-  "generated": "2025-10-21T05:24:19.302Z",
+  "generated": "2025-11-28T06:48:41.681Z",
   "plugins": [
     {
       "name": "denops-helloworld",
@@ -134,6 +134,13 @@
       "commit": "79ef41274354a486cf4f100a7adf4a7575802ccf",
       "installedAt": "2025-10-21T05:24:19.232Z",
       "path": "~/.local/share/nvim/necromancer/plugins/auto-session"
+    },
+    {
+      "name": "nvim-treesitter-textobjects",
+      "repo": "https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
+      "commit": "227165aaeb07b567fb9c066f224816aa8f3ce63f",
+      "installedAt": "2025-11-28T06:48:41.532Z",
+      "path": "~/.local/share/nvim/necromancer/plugins/nvim-treesitter-textobjects"
     }
   ]
 }
