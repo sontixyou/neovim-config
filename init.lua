@@ -112,6 +112,9 @@ vim.api.nvim_create_autocmd('VimEnter', {
   end,
 })
 
+-- Configure colorscheme
+vim.cmd[[colorscheme tokyonight-storm]]
+
 -- Configure nvim-treesitter
 require'nvim-treesitter'.setup {
   -- Ensure these parsers are installed for the specified languages

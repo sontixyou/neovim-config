@@ -1,6 +1,6 @@
 {
   "version": "1",
-  "generated": "2025-11-28T06:48:41.681Z",
+  "generated": "2025-12-03T00:48:36.141Z",
   "plugins": [
     {
       "name": "denops-helloworld",
@@ -141,6 +141,13 @@
       "commit": "227165aaeb07b567fb9c066f224816aa8f3ce63f",
       "installedAt": "2025-11-28T06:48:41.532Z",
       "path": "~/.local/share/nvim/necromancer/plugins/nvim-treesitter-textobjects"
+    },
+    {
+      "name": "tokyonight.nvim",
+      "repo": "https://github.com/folke/tokyonight.nvim",
+      "commit": "5da1b76e64daf4c5d410f06bcb6b9cb640da7dfd",
+      "installedAt": "2025-12-03T00:48:36.002Z",
+      "path": "~/.local/share/nvim/necromancer/plugins/tokyonight.nvim"
     }
   ]
 }

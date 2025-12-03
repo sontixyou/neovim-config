@@ -105,6 +105,11 @@
       "repo": "https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
       "commit": "227165aaeb07b567fb9c066f224816aa8f3ce63f",
       "dependencies": ["nvim-treesitter"]
+    },
+    {
+      "name": "tokyonight.nvim",
+      "repo": "https://github.com/folke/tokyonight.nvim",
+      "commit": "5da1b76e64daf4c5d410f06bcb6b9cb640da7dfd"
     }
   ]
 }
