@@ -483,6 +483,7 @@ require('blink.cmp').setup({
 -- Configure conform.nvim
 require("conform").setup({
   formatters_by_ft = {
+    php = { "phpcbf" },
     ruby = { "rubocop", lsp_format = "fallback" },
     -- JavaScript/TypeScript: use Biome (fallback to prettier if not available)
     javascript = { "biome", "prettier", stop_after_first = true },
@@ -505,6 +506,11 @@ require("conform").setup({
       args = { "check", "--write", "--stdin-file-path", "$FILENAME" },
       stdin = true,
       cwd = require("conform.util").root_file({ "biome.json", "package.json" }),
+    },
+    phpcbf = {
+      command = "phpcbf",
+      args = { "-" },
+      stdin = true,
     },
   },
   format_on_save = {
