@@ -191,6 +191,14 @@ Automatic formatting is enabled via conform.nvim:
 | CSS/SCSS | stylelint |
 | Rust | rustfmt |
 
+### PHP (phpcbf)
+
+```bash
+composer global require squizlabs/php_codesniffer
+```
+
+プロジェクトに `phpcs.xml` または `phpcs.xml.dist` がある場合、自動的にその設定が使用されます。
+
 ## Plugin Management
 
 ```bash
