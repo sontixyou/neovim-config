@@ -110,6 +110,11 @@
       "name": "tokyonight.nvim",
       "repo": "https://github.com/folke/tokyonight.nvim",
       "commit": "5da1b76e64daf4c5d410f06bcb6b9cb640da7dfd"
+    },
+    {
+      "name": "nvim-ts-autotag",
+      "repo": "https://github.com/sontixyou/nvim-ts-autotag",
+      "commit": "20f9d2a14d8a4b7d797af940801d6460d5c1749c"
     }
   ]
 }
