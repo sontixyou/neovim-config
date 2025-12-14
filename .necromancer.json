@@ -115,6 +115,11 @@
       "name": "nvim-ts-autotag",
       "repo": "https://github.com/sontixyou/nvim-ts-autotag",
       "commit": "20f9d2a14d8a4b7d797af940801d6460d5c1749c"
+    },
+    {
+      "name": "vim-rails",
+      "repo": "https://github.com/tpope/vim-rails",
+      "commit": "b0a5c76f86ea214ade36ab0b811e730c3f0add67"
     }
   ]
 }
