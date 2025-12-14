@@ -1,6 +1,6 @@
 {
   "version": "1",
-  "generated": "2025-12-03T00:48:36.141Z",
+  "generated": "2025-12-14T15:46:02.684Z",
   "plugins": [
     {
       "name": "denops-helloworld",
@@ -148,6 +148,13 @@
       "commit": "5da1b76e64daf4c5d410f06bcb6b9cb640da7dfd",
       "installedAt": "2025-12-03T00:48:36.002Z",
       "path": "~/.local/share/nvim/necromancer/plugins/tokyonight.nvim"
+    },
+    {
+      "name": "nvim-ts-autotag",
+      "repo": "https://github.com/sontixyou/nvim-ts-autotag",
+      "commit": "20f9d2a14d8a4b7d797af940801d6460d5c1749c",
+      "installedAt": "2025-12-14T15:46:02.568Z",
+      "path": "~/.local/share/nvim/necromancer/plugins/nvim-ts-autotag"
     }
   ]
 }
