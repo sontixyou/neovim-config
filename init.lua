@@ -650,3 +650,24 @@ vim.lsp.config('phpactor', {
 
 -- Enable phpactor
 vim.lsp.enable('phpactor')
+
+-- Configure rust-analyzer
+vim.lsp.config('rust_analyzer', {
+  cmd = { "rust-analyzer" },
+  filetypes = { "rust" },
+  root_markers = { "Cargo.toml", "rust-project.json", ".git" },
+  capabilities = require('blink.cmp').get_lsp_capabilities(),
+  settings = {
+    ["rust-analyzer"] = {
+      cargo = {
+        allFeatures = true,
+      },
+      checkOnSave = {
+        command = "clippy",
+      },
+    },
+  },
+})
+
+-- Enable rust-analyzer
+vim.lsp.enable('rust_analyzer')
