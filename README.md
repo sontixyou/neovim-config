@@ -24,6 +24,9 @@ npm install -g @github/copilot-language-server
 
 # Tailwind CSS (optional)
 npm install -g @tailwindcss/language-server
+
+# Rust
+rustup component add rust-analyzer
 ```
 
 ### PHP Development (phpactor)
@@ -175,6 +178,7 @@ Leader key: `<Space>`
 |--------|-----------|
 | ruby_lsp | Ruby, ERB |
 | ts_ls | JavaScript, TypeScript |
+| rust_analyzer | Rust |
 | phpactor | PHP |
 | tailwindcss | CSS, JS/TS |
 | copilot | Multi-language |
