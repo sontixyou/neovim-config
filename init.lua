@@ -83,6 +83,17 @@ keymap.set("n", "<C-l>", "<C-w>l", { desc = "Move to right window" })
 keymap.set("v", "<", "<gv")
 keymap.set("v", ">", ">gv")
 
+local necromancer_path = vim.fn.stdpath("data") .. "/necromancer/necromancer.nvim"
+if not vim.loop.fs_stat(necromancer_path) then
+  vim.fn.system({
+    "git", "clone",
+    "https://github.com/sontixyou/necromancer.nvim",
+    necromancer_path,
+  })
+end
+vim.opt.rtp:prepend(necromancer_path)
+require("necromancer").setup()
+
 -- Configure colorscheme
 vim.cmd[[colorscheme tokyonight-storm]]
 
