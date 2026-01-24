@@ -83,35 +83,6 @@ keymap.set("n", "<C-l>", "<C-w>l", { desc = "Move to right window" })
 keymap.set("v", "<", "<gv")
 keymap.set("v", ">", ">gv")
 
-vim.g['denops#deno'] = '/opt/homebrew/bin/deno'
-
--- Load necromancer plugins
-local plugin_dir = vim.fn.expand('~/.local/share/nvim/necromancer/plugins')
-
--- Load denops.vim first (required by other denops plugins)
-local denops_path = plugin_dir .. '/denops.vim'
-if vim.fn.isdirectory(denops_path) == 1 then
-  vim.opt.runtimepath:prepend(denops_path)
-end
-
--- Load other plugins
-for _, plugin in ipairs(vim.fn.readdir(plugin_dir)) do
-  if plugin ~= 'denops.vim' then
-    vim.opt.runtimepath:append(plugin_dir .. '/' .. plugin)
-  end
-end
-
--- Start denops and discover plugins on startup
-vim.api.nvim_create_autocmd('VimEnter', {
-  callback = function()
-    vim.defer_fn(function()
-      if vim.fn.exists('*denops#plugin#discover') == 1 then
-        vim.fn['denops#plugin#discover']()
-      end
-    end, 100)
-  end,
-})
-
 -- Configure colorscheme
 vim.cmd[[colorscheme tokyonight-storm]]
 
