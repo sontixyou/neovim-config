@@ -6,7 +6,6 @@ Personal Neovim configuration using [Necromancer](https://github.com/sontixyou/n
 
 - **Neovim 0.12+** (required for Copilot inline completion)
 - **Node.js 22+** (required for Copilot)
-- **Deno** (for denops plugins) - see https://deno.land/manual/getting_started/installation
 - **ripgrep** (for Telescope live grep) - see https://github.com/BurntSushi/ripgrep#installation
 - **Nerd Font** (for icons) - see https://www.nerdfonts.com/font-downloads
 
@@ -76,7 +75,6 @@ nvim .
 | [autoclose.nvim](https://github.com/m4xshen/autoclose.nvim) | Auto-close brackets |
 | [auto-session](https://github.com/rmagatti/auto-session) | Session management |
 | [tokyonight.nvim](https://github.com/folke/tokyonight.nvim) | Color scheme |
-| [denops.vim](https://github.com/vim-denops/denops.vim) | Deno plugin framework |
 
 ## Key Bindings
 
