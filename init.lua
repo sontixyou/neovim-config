@@ -597,22 +597,6 @@ vim.lsp.config('copilot', {
 -- Enable copilot
 vim.lsp.enable('copilot')
 
--- Configure phpactor
-vim.lsp.config('phpactor', {
-  cmd = { vim.fn.expand("~/projects/php-projects/phpactor/bin/phpactor"), "language-server" },
-  filetypes = { "php" },
-  root_markers = { "composer.json", ".git" },
-  capabilities = require('blink.cmp').get_lsp_capabilities(),
-  init_options = {
-    ["language_server_phpstan.enabled"] = enable,
-    ["language_server_psalm.enabled"] = false,
-    ["symfony.enabled"] = false,
-  }
-})
-
--- Enable phpactor
-vim.lsp.enable('phpactor')
-
 -- Configure rust-analyzer
 vim.lsp.config('rust_analyzer', {
   cmd = { "rust-analyzer" },
