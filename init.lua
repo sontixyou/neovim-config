@@ -153,17 +153,6 @@ vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help ta
 -- Treesj
 require('treesj').setup({})
 
-
--- Configure seeker.nvim keybinding
--- vim.api.nvim_create_autocmd('User', {
---   pattern = 'DenopsReady',
---   callback = function()
---     vim.keymap.set('n', '<leader><leader>', function()
---       vim.fn['denops#notify']('seeker', 'findFiles', {})
---     end, { desc = 'Find Files', noremap = true, silent = true })
---   end,
--- })
-
 -- Configure autoclose.nvim
 require("autoclose").setup()
 
