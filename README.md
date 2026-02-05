@@ -21,30 +21,15 @@ npm install -g typescript typescript-language-server
 # Copilot
 npm install -g @github/copilot-language-server
 
-# Tailwind CSS (optional)
-npm install -g @tailwindcss/language-server
-
 # Rust
 rustup component add rust-analyzer
-```
-
-### PHP Development (phpactor)
-
-```bash
-cd ~/projects/php-projects
-git clone https://github.com/phpactor/phpactor.git
-cd phpactor
-composer install
 ```
 
 ### Formatters
 
 ```bash
-# PHP
-composer global require squizlabs/php_codesniffer
-
-# JavaScript/TypeScript (Biome or Prettier)
-npm install -g @biomejs/biome prettier
+# JavaScript/TypeScript
+npm install -g prettier
 
 # CSS/SCSS
 npm install -g stylelint
@@ -177,8 +162,6 @@ Leader key: `<Space>`
 | ruby_lsp | Ruby, ERB |
 | ts_ls | JavaScript, TypeScript |
 | rust_analyzer | Rust |
-| phpactor | PHP |
-| tailwindcss | CSS, JS/TS |
 | copilot | Multi-language |
 
 ## Format on Save
@@ -187,19 +170,10 @@ Automatic formatting is enabled via conform.nvim:
 
 | Language | Formatter |
 |----------|-----------|
-| PHP | phpcbf |
 | Ruby | rubocop |
-| JavaScript/TypeScript | biome, prettier |
+| JavaScript/TypeScript | prettier |
 | CSS/SCSS | stylelint |
 | Rust | rustfmt |
-
-### PHP (phpcbf)
-
-```bash
-composer global require squizlabs/php_codesniffer
-```
-
-プロジェクトに `phpcs.xml` または `phpcs.xml.dist` がある場合、自動的にその設定が使用されます。
 
 ## Plugin Management
 
