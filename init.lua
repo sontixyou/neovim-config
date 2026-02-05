@@ -83,33 +83,17 @@ keymap.set("n", "<C-l>", "<C-w>l", { desc = "Move to right window" })
 keymap.set("v", "<", "<gv")
 keymap.set("v", ">", ">gv")
 
-vim.g['denops#deno'] = '/opt/homebrew/bin/deno'
-
--- Load necromancer plugins
-local plugin_dir = vim.fn.expand('~/.local/share/nvim/necromancer/plugins')
-
--- Load denops.vim first (required by other denops plugins)
-local denops_path = plugin_dir .. '/denops.vim'
-if vim.fn.isdirectory(denops_path) == 1 then
-  vim.opt.runtimepath:prepend(denops_path)
+local necromancer_path = vim.fn.stdpath("data") .. "/necromancer/necromancer.nvim"
+if not vim.loop.fs_stat(necromancer_path) then
+  vim.fn.system({
+    "git", "clone",
+    "https://github.com/sontixyou/necromancer.nvim",
+    necromancer_path,
+  })
 end
-
--- Load other plugins
-for _, plugin in ipairs(vim.fn.readdir(plugin_dir)) do
-  if plugin ~= 'denops.vim' then
-    vim.opt.runtimepath:append(plugin_dir .. '/' .. plugin)
-  end
-end
-
--- Start denops and discover plugins on startup
-vim.api.nvim_create_autocmd('VimEnter', {
-  callback = function()
-    vim.defer_fn(function()
-      if vim.fn.exists('*denops#plugin#discover') == 1 then
-        vim.fn['denops#plugin#discover']()
-      end
-    end, 100)
-  end,
+vim.opt.rtp:prepend(necromancer_path)
+require("necromancer").setup({
+  config_path = vim.fn.stdpath("config") .. "/.necromancer.json"
 })
 
 -- Configure colorscheme
@@ -492,15 +476,14 @@ require('blink.cmp').setup({
 -- Configure conform.nvim
 require("conform").setup({
   formatters_by_ft = {
-    php = { "phpcbf" },
     ruby = { "rubocop", lsp_format = "fallback" },
     -- JavaScript/TypeScript: use Biome (fallback to prettier if not available)
-    javascript = { "biome", "prettier", stop_after_first = true },
-    javascriptreact = { "biome", "prettier", stop_after_first = true },
-    typescript = { "biome", "prettier", stop_after_first = true },
-    typescriptreact = { "biome", "prettier", stop_after_first = true },
-    json = { "biome", "prettier", stop_after_first = true },
-    jsonc = { "biome", "prettier", stop_after_first = true },
+    javascript = { "prettier", stop_after_first = true },
+    javascriptreact = { "prettier", stop_after_first = true },
+    typescript = { "prettier", stop_after_first = true },
+    typescriptreact = { "prettier", stop_after_first = true },
+    json = { "prettier", stop_after_first = true },
+    jsonc = { "prettier", stop_after_first = true },
     -- CSS/SCSS/Sass: use stylelint
     css = { "stylelint" },
     scss = { "stylelint" },
@@ -508,19 +491,6 @@ require("conform").setup({
     -- Rust with LSP fallback
     rust = { "rustfmt", lsp_format = "fallback" },
     ["_"] = { "trim_whitespace" },
-  },
-  formatters = {
-    biome = {
-      command = "node_modules/.bin/biome",
-      args = { "check", "--write", "--stdin-file-path", "$FILENAME" },
-      stdin = true,
-      cwd = require("conform.util").root_file({ "biome.json", "package.json" }),
-    },
-    phpcbf = {
-      command = "phpcbf",
-      args = { "-" },
-      stdin = true,
-    },
   },
   format_on_save = {
     timeout_ms = 3000,
@@ -616,9 +586,9 @@ vim.lsp.config('copilot', {
   cmd = { "copilot-language-server", "--stdio" },
   filetypes = {
     "javascript", "javascriptreact", "typescript", "typescriptreact",
-    "python", "ruby", "go", "rust", "java", "c", "cpp", "lua",
+    "python", "ruby", "go", "rust", "java", "lua",
     "vim", "sh", "bash", "zsh", "html", "css", "scss", "json",
-    "yaml", "markdown", "php", "swift", "kotlin", "scala"
+    "yaml", "markdown", "swift",
   },
   root_markers = { ".git" },
   capabilities = copilot_capabilities,
