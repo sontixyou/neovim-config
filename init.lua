@@ -597,14 +597,6 @@ vim.lsp.config('copilot', {
 -- Enable copilot
 vim.lsp.enable('copilot')
 
--- Enable tailwindcss
-vim.lsp.enable('tailwindcss')
-
-vim.lsp.config('tailwindcss', {
-  cmd = { "tailwindcss-language-server", "--stdio" },
-  filetypes = {"css", "less", "postcss", "sass", "scss", "javascript", "javascriptreact", "reason", "rescript", "typescript", "typescriptreact" }
-})
-
 -- Configure phpactor
 vim.lsp.config('phpactor', {
   cmd = { vim.fn.expand("~/projects/php-projects/phpactor/bin/phpactor"), "language-server" },
