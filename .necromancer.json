@@ -1,16 +1,6 @@
 {
   "plugins": [
     {
-      "commit": "5cfca39988a36e42d81b925264fc846077a727e3",
-      "name": "denops.vim",
-      "repo": "https://github.com/vim-denops/denops.vim"
-    },
-    {
-      "commit": "f975281571191cfd4e3f9e5ba77103932f7dd6e5",
-      "name": "denops-helloworld",
-      "repo": "https://github.com/vim-denops/denops-helloworld.vim"
-    },
-    {
       "commit": "f8bbc3177d929dc86e272c41cc15219f0a7aa1ac",
       "name": "nvim-treesitter",
       "repo": "https://github.com/nvim-treesitter/nvim-treesitter"

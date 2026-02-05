@@ -1,20 +1,6 @@
 {
-  "generated": "2026-02-05T04:36:44Z",
+  "generated": "2026-02-05T04:52:17Z",
   "plugins": [
-    {
-      "commit": "f975281571191cfd4e3f9e5ba77103932f7dd6e5",
-      "installedAt": "2026-01-25T10:04:15Z",
-      "name": "denops-helloworld",
-      "path": "~/.local/share/nvim/necromancer/plugins/denops-helloworld",
-      "repo": "https://github.com/vim-denops/denops-helloworld.vim"
-    },
-    {
-      "commit": "5cfca39988a36e42d81b925264fc846077a727e3",
-      "installedAt": "2026-02-05T04:36:44Z",
-      "name": "denops.vim",
-      "path": "~/.local/share/nvim/necromancer/plugins/denops.vim",
-      "repo": "https://github.com/vim-denops/denops.vim"
-    },
     {
       "commit": "f8bbc3177d929dc86e272c41cc15219f0a7aa1ac",
       "installedAt": "2026-02-05T04:36:44Z",
