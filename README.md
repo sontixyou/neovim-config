@@ -1,6 +1,6 @@
 # Neovim Configuration
 
-Personal Neovim configuration using [Necromancer](https://github.com/sontixyou/necromancer) as the plugin manager.
+Personal Neovim configuration using [Necromancer](https://github.com/sontixyou/necromancer.nvim) as the plugin manager.
 
 ## Requirements
 
